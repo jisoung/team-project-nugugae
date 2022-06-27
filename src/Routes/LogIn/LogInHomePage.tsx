@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
@@ -12,7 +12,7 @@ const Container = styled.div`
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: centers;
   justify-content: center;
   margin-bottom: 100px;
 `;
@@ -88,7 +88,7 @@ function LogInHomePage() {
         </OnTitle>
         <TitleUnder>Animals Are Another Family</TitleUnder>
       </TitleContainer>
-      <Link to="/login">
+      <Link to="login">
         <Btn name="logIn">LOGIN</Btn>
       </Link>
       <Link to="signUp">
