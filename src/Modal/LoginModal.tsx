@@ -30,7 +30,7 @@ const Modal = styled.div<IModalProps>`
   position: absolute;
   border: 0px solid black;
   left: 45vw;
-  top: 55vh;
+  top: 60vh;
   width: 300px;
   animation: ${(props) =>
     props.isRequired ? "modal-show 0.5s" : "modal-down 0.5s forwards"};

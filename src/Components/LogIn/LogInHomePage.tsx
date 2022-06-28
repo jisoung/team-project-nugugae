@@ -50,6 +50,7 @@ const Btn = styled.button`
   box-shadow: 0px 2px 2px 2px rgba(176, 155, 133, 0.3);
   transition: 0.2s ease-in;
   &:hover {
+    color: ${(props) => props.theme.color};
     box-shadow: 0 0 0 0;
   }
 `;

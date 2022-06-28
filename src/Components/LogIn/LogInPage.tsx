@@ -70,12 +70,14 @@ function LogInPage() {
           placeholder="please write id..."
         ></Input>
         <Input
+          type="password"
           {...register("password", {
             required: {
               value: true,
               message: "Your Password is required",
             },
           })}
+          placeholder="please write password..."
         ></Input>
         {errors.id?.message ? (
           errors.id.message.map()
