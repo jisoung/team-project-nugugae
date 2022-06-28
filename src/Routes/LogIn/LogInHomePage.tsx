@@ -12,7 +12,7 @@ const Container = styled.div`
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: centers;
   justify-content: center;
   margin-bottom: 100px;
 `;
@@ -88,7 +88,7 @@ function LogInHomePage() {
         </OnTitle>
         <TitleUnder>Animals Are Another Family</TitleUnder>
       </TitleContainer>
-      <Link to="/login">
+      <Link to="login">
         <Btn name="logIn">LOGIN</Btn>
       </Link>
       <Link to="signUp">
