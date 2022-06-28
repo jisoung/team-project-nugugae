@@ -4,22 +4,48 @@ interface IModal {
   whatError?: any;
 }
 
-const Modal = styled.div`
+interface IModalProps {
+  isRequired: boolean;
+}
+
+const Modal = styled.div<IModalProps>`
   @keyframes modal-show {
     0% {
-      opacity: 0;
+      transform: translateY(10px);
     }
     100% {
-      opacity: 1;
+      transform: translateY(0px);
     }
   }
-  border: 1px solid black;
+  @keyframes modal-down {
+    0% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+  }
+  position: absolute;
+  border: 0px solid black;
+  left: 45vw;
+  top: 55vh;
   width: 300px;
-  animation: modal-show 0.5s;
+  animation: ${(props) =>
+    props.isRequired ? "modal-show 0.5s" : "modal-down 0.5s forwards"};
 `;
 
 function LoginModal({ whatError }: IModal) {
-  return <>{whatError.type === "required" ? <Modal></Modal> : null}</>;
+  return (
+    <>
+      {whatError === "" ? (
+        <Modal isRequired={false}>Correct</Modal>
+      ) : (
+        <Modal isRequired={true}>{whatError}</Modal>
+      )}
+    </>
+  );
 }
 
 export default LoginModal;

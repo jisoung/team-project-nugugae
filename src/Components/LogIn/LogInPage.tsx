@@ -56,15 +56,32 @@ function LogInPage() {
   console.log(errors);
   return (
     <Container>
-      {errors ? null : <LoginModal />}
       <Link to="/">
         <Exit>&larr;</Exit>
       </Link>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <Input
-          {...register("id", { required: true })}
+          {...register("id", {
+            required: {
+              value: true,
+              message: "Your Id is required",
+            },
+          })}
           placeholder="please write id..."
         ></Input>
+        <Input
+          {...register("password", {
+            required: {
+              value: true,
+              message: "Your Password is required",
+            },
+          })}
+        ></Input>
+        {errors.id?.message ? (
+          errors.id.message.map()
+        ) : (
+          <LoginModal whatError="" />
+        )}
       </FormContainer>
     </Container>
   );
