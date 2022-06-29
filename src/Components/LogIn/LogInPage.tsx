@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TitleLogo from "./btns/titleLogo";
-// import LoginModal from "../../Modal/LoginModal";
 
 const Exit = styled.button`
   position: absolute;
@@ -109,11 +108,6 @@ function LogInPage() {
           })}
           placeholder="please write password..."
         ></Input>
-        {/* {errors.id?.message ? (
-          errors.id.message.map()
-        ) : (
-          <LoginModal whatError="" />
-        )} */}
       </FormContainer>
       <Text>forgot ID?</Text>
       <Text>forgot password?</Text>

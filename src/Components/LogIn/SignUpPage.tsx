@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TitleLogo from "./btns/titleLogo";
-// import LoginModal from "../../Modal/LoginModal";
 
 interface IForm {
-  id?: string;
-  password?: string;
-  name?: string;
-  phNumber?: string;
-  auth?: string;
+  id: string;
+  password: string;
+  password2: string;
+  name: string;
+  phNumber: string;
+  auth: string;
 }
 
 const Exit = styled.button`
@@ -95,13 +95,19 @@ function SignUpPage() {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<IForm>();
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: IForm) => {
     console.log(data);
+    if (data.password !== data.password2) {
+      setError(
+        "password2",
+        { message: "password is different" },
+        { shouldFocus: true }
+      );
+    }
   };
-  const authSubmit = (data: any) => {
-    console.log(data.phoneNumber);
-  };
+  console.log(errors);
   return (
     <Container>
       <TitleLogo />
@@ -110,10 +116,28 @@ function SignUpPage() {
       </Link>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <Input
+          {...register("name", {
+            required: {
+              value: true,
+              message: "Your Id is required",
+            },
+            minLength: {
+              value: 2,
+              message: "Your Name is short",
+            },
+          })}
+          placeholder="please write name..."
+          style={{ width: "250px" }}
+        ></Input>
+        <Input
           {...register("id", {
             required: {
               value: true,
               message: "Your Id is required",
+            },
+            minLength: {
+              value: 5,
+              message: "Your Id is short",
             },
           })}
           placeholder="please write id..."
@@ -125,17 +149,22 @@ function SignUpPage() {
               value: true,
               message: "Your Password is required",
             },
+            minLength: {
+              value: 8,
+              message: "Your password is short",
+            },
           })}
           placeholder="please write password..."
         ></Input>
         <Input
-          {...register("name", {
+          type="password"
+          {...register("password2", {
             required: {
               value: true,
-              message: "Your Id is required",
+              message: "Your Password is required",
             },
           })}
-          placeholder="please write name..."
+          placeholder="Please write the same password"
         ></Input>
         <span>
           <Input
@@ -149,15 +178,8 @@ function SignUpPage() {
             style={{ width: "350px" }}
             type="number"
           ></Input>
-          <AuthBtn {...register("auth")} onSubmit={handleSubmit(authSubmit)}>
-            인증
-          </AuthBtn>
+          <AuthBtn {...register("auth")}>인증</AuthBtn>
         </span>
-        {/* {errors.id?.message ? (
-          errors.id.message.map()
-        ) : (
-          <LoginModal whatError="" />
-        )} */}
       </FormContainer>
       <SubmitBtn>Sign Up</SubmitBtn>
     </Container>
