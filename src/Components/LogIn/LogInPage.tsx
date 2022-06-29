@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { Link, Outlet } from "react-router-dom";
-import TitleLogo from "./titleLogo";
+import { Link } from "react-router-dom";
+import TitleLogo from "./btns/titleLogo";
 // import LoginModal from "../../Modal/LoginModal";
 
 const Exit = styled.button`
@@ -55,6 +55,23 @@ const Text = styled.p`
     color: ${(props) => props.theme.color2};
   }
 `;
+const SubmitBtn = styled.button`
+  background-color: ${(props) => props.theme.color4};
+  width: 200px;
+  height: 50px;
+  border: 0;
+  color: ${(props) => props.theme.color};
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 0 0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px 2px rgba(176, 155, 133, 0.3);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+`;
 
 function LogInPage() {
   const {
@@ -100,6 +117,9 @@ function LogInPage() {
       </FormContainer>
       <Text>forgot ID?</Text>
       <Text>forgot password?</Text>
+      <Link to="/home">
+        <SubmitBtn>Login</SubmitBtn>
+      </Link>
     </Container>
   );
 }
