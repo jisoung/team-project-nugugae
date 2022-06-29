@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 
 const Container = styled.div`
@@ -43,6 +43,7 @@ function LogInHomePage() {
       <Link to="signUp">
         <Btn name="signUp">SIGN UP</Btn>
       </Link>
+      <Outlet />
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 // import LoginModal from "../../Modal/LoginModal";
 
