@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import LoginModal from "../../Modal/LoginModal";
+import TitleLogo from "./titleLogo";
+// import LoginModal from "../../Modal/LoginModal";
 
 const Exit = styled.button`
   position: absolute;
@@ -31,7 +32,7 @@ const FormContainer = styled.form`
   flex-direction: column;
 `;
 const Input = styled.input`
-  color: white;
+  color: ${(props) => props.theme.color4};
   font-size: larger;
   border: 0px solid;
   background-color: ${(props) => props.theme.color2};
@@ -42,6 +43,17 @@ const Input = styled.input`
   padding: 0px 0px 0px 30px;
   margin: 0px 0px 20px 0px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+`;
+const Text = styled.p`
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 200;
+  margin-bottom: 10px;
+  color: ${(props) => props.theme.color4};
+  transition: 0.2s ease-in;
+  &:hover {
+    color: ${(props) => props.theme.color2};
+  }
 `;
 
 function LogInPage() {
@@ -56,6 +68,7 @@ function LogInPage() {
   console.log(errors);
   return (
     <Container>
+      <TitleLogo />
       <Link to="/">
         <Exit>&larr;</Exit>
       </Link>
@@ -79,12 +92,14 @@ function LogInPage() {
           })}
           placeholder="please write password..."
         ></Input>
-        {errors.id?.message ? (
+        {/* {errors.id?.message ? (
           errors.id.message.map()
         ) : (
           <LoginModal whatError="" />
-        )}
+        )} */}
       </FormContainer>
+      <Text>forgot ID?</Text>
+      <Text>forgot password?</Text>
     </Container>
   );
 }
