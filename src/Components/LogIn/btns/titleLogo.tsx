@@ -1,19 +1,32 @@
 import styled from "styled-components";
 
+interface ILogo {
+  lheight?: number;
+  lwidth?: number;
+  lhaveText?: boolean;
+  fontSize?: string;
+}
+
+interface ITitle {
+  titlewidth: number;
+  titleHeight: number;
+  fontSize: string;
+}
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 80px;
 `;
 const OnTitle = styled.span`
   display: flex;
   align-items: center;
 `;
-const Title = styled.h1`
+const Title = styled.h1<ITitle>`
   font-weight: bold;
-  width: ${(props) => props.titleHeight};
+  font-size: ${(props) => props.fontSize};
+  width: ${(props) => props.titlewidth};
+  height: ${(props) => props.titleHeight};
   color: black;
 `;
 const Icon = styled.div`
@@ -24,16 +37,16 @@ const TitleUnder = styled.p`
   color: ${(props) => props.theme.color4};
 `;
 
-interface ILogo {
-  lheight?: number;
-  lwidth?: number;
-  lhaveText?: boolean;
-}
-function TitleLogo({ lheight = 52, lwidth = 52, lhaveText = true }: ILogo) {
+function TitleLogo({
+  lheight = 52,
+  lwidth = 52,
+  lhaveText = true,
+  fontSize = "52px",
+}: ILogo) {
   return (
     <TitleContainer>
       <OnTitle>
-        <Title titleHeight={lheight} titleWidth={lwidth}>
+        <Title titlewidth={lwidth} titleHeight={lheight} fontSize={fontSize}>
           N U G U
         </Title>
         <Icon>

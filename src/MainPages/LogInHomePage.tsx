@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link, Outlet } from "react-router-dom";
-import TitleLogo from "./btns/titleLogo";
+import TitleLogo from "../Components/LogIn/btns/titleLogo";
 
 const Container = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const Btn = styled.button`
   font-weight: bold;
   background-color: ${(props) =>
     props.name === "logIn" ? props.theme.color2 : props.theme.color3};
-  margin-bottom: 20px;
+  margin: 20px;
   box-shadow: 0px 2px 2px 2px rgba(176, 155, 133, 0.3);
   transition: 0.2s ease-in;
   &:hover {

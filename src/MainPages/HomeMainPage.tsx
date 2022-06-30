@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import HomeNavPage from "./HomeNavView";
-import HomeAdoptView from "./option/HomeAdoptView";
-import HomeFindPage from "./option/HomeFindView";
-import HomeShopPage from "./option/HomeShopView";
+import HomeNavPage from "../Components/Home/HomeNavView";
+import HomeAdoptView from "../Components/Home/option/HomeAdoptPage";
+import HomeFindPage from "../Components/Home/option/HomeFindView";
+import HomeShopPage from "../Components/Home/option/HomeShopView";
 
 const MainContainer = styled.div`
   display: flex;
