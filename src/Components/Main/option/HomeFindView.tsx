@@ -1,5 +1,5 @@
-function HomeFindPage() {
-  return null;
+function HomeFindView() {
+  return <h1>find</h1>;
 }
 
-export default HomeFindPage;
+export default HomeFindView;

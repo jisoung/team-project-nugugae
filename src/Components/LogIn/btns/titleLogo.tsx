@@ -13,7 +13,7 @@ const OnTitle = styled.span`
 `;
 const Title = styled.h1`
   font-weight: bold;
-  font-size: 60px;
+  width: ${(props) => props.titleHeight};
   color: black;
 `;
 const Icon = styled.div`
@@ -24,17 +24,24 @@ const TitleUnder = styled.p`
   color: ${(props) => props.theme.color4};
 `;
 
-function TitleLogo() {
+interface ILogo {
+  lheight?: number;
+  lwidth?: number;
+  lhaveText?: boolean;
+}
+function TitleLogo({ lheight = 52, lwidth = 52, lhaveText = true }: ILogo) {
   return (
     <TitleContainer>
       <OnTitle>
-        <Title>N U G U</Title>
+        <Title titleHeight={lheight} titleWidth={lwidth}>
+          N U G U
+        </Title>
         <Icon>
           <svg
             fill="none"
-            height="52"
+            height={lheight}
             viewBox="0 0 20 20"
-            width="52"
+            width={lwidth}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -44,7 +51,7 @@ function TitleLogo() {
           </svg>
         </Icon>
       </OnTitle>
-      <TitleUnder>Animals Are Another Family</TitleUnder>
+      {lhaveText && <TitleUnder>Animals Are Another Family</TitleUnder>}
     </TitleContainer>
   );
 }

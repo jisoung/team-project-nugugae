@@ -1,5 +1,5 @@
 function HomeShopPage() {
-  return null;
+  return <h1>shop</h1>;
 }
 
 export default HomeShopPage;
