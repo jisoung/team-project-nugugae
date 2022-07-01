@@ -9,7 +9,6 @@ interface IForm {
   password2: string;
   name: string;
   phNumber: string;
-  auth: string;
 }
 const Exit = styled.button`
   position: absolute;
@@ -52,7 +51,7 @@ const Input = styled.input`
   width: 400px;
   height: 50px;
   padding: 0px 0px 0px 30px;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 0px 0px;
   &::placeholder {
     color: #ffffff7e;
   }
@@ -89,6 +88,11 @@ const AuthBtn = styled.button`
   &:hover {
     box-shadow: 0px 2px 0px 0px rgba(176, 155, 133, 0.3);
   }
+`;
+const ErrorModal = styled.span`
+  margin: 5px 0px 5px 40px;
+  font-size: 15px;
+  color: #b0b0b07d;
 `;
 
 function SignUpPage() {
@@ -130,6 +134,7 @@ function SignUpPage() {
           placeholder="please write name..."
           style={{ width: "250px", marginTop: "20px" }}
         ></Input>
+        <ErrorModal>{errors.name?.message}</ErrorModal>
         <Input
           {...register("id", {
             required: {
@@ -143,6 +148,7 @@ function SignUpPage() {
           })}
           placeholder="please write id..."
         ></Input>
+        <ErrorModal>{errors.id?.message}</ErrorModal>
         <Input
           type="password"
           {...register("password", {
@@ -157,6 +163,7 @@ function SignUpPage() {
           })}
           placeholder="please write password..."
         ></Input>
+        <ErrorModal>{errors.password?.message}</ErrorModal>
         <Input
           type="password"
           {...register("password2", {
@@ -167,20 +174,24 @@ function SignUpPage() {
           })}
           placeholder="Please write the same password"
         ></Input>
-        <Input
-          {...register("phNumber", {
-            required: {
-              value: true,
-              message: "Your Id is required",
-            },
-          })}
-          placeholder="please write your phone number..."
-          style={{ width: "350px" }}
-          type="number"
-        ></Input>
+        <ErrorModal>{errors.password2?.message}</ErrorModal>
+        <span>
+          <Input
+            {...register("phNumber", {
+              required: {
+                value: true,
+                message: "Your Id is required",
+              },
+            })}
+            placeholder="please write your phone number..."
+            style={{ width: "350px" }}
+            type="number"
+          ></Input>
+          <AuthBtn>인증</AuthBtn>
+        </span>
+        <ErrorModal>{errors.phNumber?.message}</ErrorModal>
         <SubmitBtn>Sign Up</SubmitBtn>
       </FormContainer>
-      <AuthBtn>인증</AuthBtn>
     </Container>
   );
 }

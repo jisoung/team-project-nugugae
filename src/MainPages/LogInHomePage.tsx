@@ -16,9 +16,9 @@ const Btn = styled.button`
   align-items: center;
   width: 333px;
   height: 54px;
+  padding-left: 30px;
   border: 0px solid;
   border-radius: 5px;
-  padding-left: 30px;
   color: white;
   font-size: 20px;
   font-weight: bold;
