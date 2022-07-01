@@ -11,7 +11,6 @@ interface IForm {
   phNumber: string;
   auth: string;
 }
-
 const Exit = styled.button`
   position: absolute;
   border: 0px solid;
@@ -59,8 +58,10 @@ const Input = styled.input`
   }
 `;
 const SubmitBtn = styled.button`
+  position: relative;
+  left: 50px;
   background-color: ${(props) => props.theme.color2};
-  width: 150px;
+  width: 300px;
   height: 50px;
   border: 0;
   color: white;
@@ -127,7 +128,7 @@ function SignUpPage() {
             },
           })}
           placeholder="please write name..."
-          style={{ width: "250px" }}
+          style={{ width: "250px", marginTop: "20px" }}
         ></Input>
         <Input
           {...register("id", {
@@ -166,22 +167,20 @@ function SignUpPage() {
           })}
           placeholder="Please write the same password"
         ></Input>
-        <span>
-          <Input
-            {...register("phNumber", {
-              required: {
-                value: true,
-                message: "Your Id is required",
-              },
-            })}
-            placeholder="please write your phone number..."
-            style={{ width: "350px" }}
-            type="number"
-          ></Input>
-          <AuthBtn {...register("auth")}>인증</AuthBtn>
-        </span>
+        <Input
+          {...register("phNumber", {
+            required: {
+              value: true,
+              message: "Your Id is required",
+            },
+          })}
+          placeholder="please write your phone number..."
+          style={{ width: "350px" }}
+          type="number"
+        ></Input>
+        <SubmitBtn>Sign Up</SubmitBtn>
       </FormContainer>
-      <SubmitBtn>Sign Up</SubmitBtn>
+      <AuthBtn>인증</AuthBtn>
     </Container>
   );
 }
