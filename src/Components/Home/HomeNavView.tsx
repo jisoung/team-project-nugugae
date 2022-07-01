@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import TitleLogo from "../LogIn/btns/titleLogo";
-import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
+import { faSearch, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 15vh;
 `;
 const Img = styled.img`
   position: absolute;
@@ -28,13 +28,6 @@ const Search = styled.input`
   outline: none;
 `;
 function HomeNavView() {
-  const profileStyle = {
-    marginLeft: "auto",
-    size: "70px",
-  };
-  const menuStyle = {
-    marginRight: "10px",
-  };
   return (
     <NavContainer>
       <Img />
@@ -45,16 +38,13 @@ function HomeNavView() {
         <CtgText>SHOP</CtgText>
       </CtgTexts>
       <span>
-        <AiOutlineSearch
-          style={{
-            marginBottom: "-5.5px",
-            borderBottom: "1px solid",
-          }}
-        />
+        <FontAwesomeIcon icon={faSearch} />
         <Search />
       </span>
-      <CgProfile style={profileStyle} />
-      <AiOutlineMenu style={menuStyle} />
+      <span>
+        <FontAwesomeIcon icon={faUser} />
+        <FontAwesomeIcon icon={faBars} />
+      </span>
     </NavContainer>
   );
 }
