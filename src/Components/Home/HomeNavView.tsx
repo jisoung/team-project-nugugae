@@ -22,17 +22,23 @@ const CtgText = styled.button`
   font-weight: 200;
   margin: 0px 20px 0px 0px;
   border: 0;
-  color: white;
+  color: #ffffffb1;
   background-color: rgba(0, 0, 0, 0);
+  transition: 0.2s ease-in;
+  &:hover {
+    color: white;
+  }
 `;
 const Search = styled.input`
-  font-size: 20px;
+  font-family: Inria Serif;
+  font-size: 18px;
   border: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   height: 30px;
   outline: none;
   width: 300px;
   padding-left: 20px;
+  color: rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0);
 `;
 function HomeNavView() {
@@ -62,7 +68,11 @@ function HomeNavView() {
         <CtgText>SHOP</CtgText>
       </CtgTexts>
       <span style={{ marginRight: "auto" }}>
-        <FontAwesomeIcon icon={faSearch} style={{ marginRight: "-15px" }} />
+        <FontAwesomeIcon
+          icon={faSearch}
+          color={"rgba(255, 255, 255, 0.4)"}
+          style={{ marginRight: "-15px" }}
+        />
         <Search />
       </span>
       <span
@@ -72,8 +82,16 @@ function HomeNavView() {
           justifyContent: "center",
         }}
       >
-        <FontAwesomeIcon icon={faUser} style={profileStyle} />
-        <FontAwesomeIcon icon={faBars} style={menuStyle} />
+        <FontAwesomeIcon
+          icon={faUser}
+          color={"rgba(255, 255, 255, 0.5)"}
+          style={profileStyle}
+        />
+        <FontAwesomeIcon
+          icon={faBars}
+          color={"rgba(255, 255, 255, 1)"}
+          style={menuStyle}
+        />
       </span>
     </NavContainer>
   );
