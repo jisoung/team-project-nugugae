@@ -87,11 +87,6 @@ function HomeNavView() {
           color={"rgba(255, 255, 255, 0.5)"}
           style={profileStyle}
         />
-        <FontAwesomeIcon
-          icon={faBars}
-          color={"rgba(255, 255, 255, 1)"}
-          style={menuStyle}
-        />
       </span>
     </NavContainer>
   );
