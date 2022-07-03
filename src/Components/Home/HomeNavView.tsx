@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import TitleLogo from "../LogIn/btns/titleLogo";
-import { faSearch, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavContainer = styled.div`
@@ -46,10 +46,6 @@ function HomeNavView() {
     width: "26px",
     height: "26px",
     marginRight: "30px",
-  };
-  const menuStyle = {
-    width: "30px",
-    height: "30px",
   };
   return (
     <NavContainer>
