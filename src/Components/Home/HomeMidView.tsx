@@ -54,18 +54,18 @@ function HomeMidView() {
   return (
     <MidContainer>
       <TextTitle>Animals Are Another Family</TextTitle>
-      <TextNomal style={{ animationDelay: "0.5s" }}>
+      <TextNomal style={{ animationDelay: "0.2s" }}>
         Do you want to <TextBold>find</TextBold> a family
       </TextNomal>
-      <TextNomal style={{ animationDelay: "1s" }}>
+      <TextNomal style={{ animationDelay: "0.4s" }}>
         Do you want to <TextBold>adopt</TextBold> a family
       </TextNomal>
-      <TextNomal style={{ animationDelay: "1.5s" }}>
+      <TextNomal style={{ animationDelay: "0.6s" }}>
         Why are you hesitating?
       </TextNomal>
       <br />
       <br />
-      <TextBold style={{ animationDelay: "2s" }}>START NOW</TextBold>
+      <TextBold style={{ animationDelay: "0.8s" }}>START NOW</TextBold>
     </MidContainer>
   );
 }
