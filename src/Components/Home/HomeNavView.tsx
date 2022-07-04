@@ -18,6 +18,7 @@ const CtgTexts = styled.div`
   margin-right: auto;
 `;
 const CtgText = styled.button`
+  cursor: pointer;
   font-family: Inria Sans;
   font-weight: 200;
   margin: 0px 20px 0px 0px;
