@@ -55,19 +55,6 @@ const Input = styled.input`
   margin: 20px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
 `;
-const Text = styled.p`
-  opacity: 0;
-  animation: initAni 0.3s forwards;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 200;
-  margin-bottom: 10px;
-  color: ${(props) => props.theme.color4};
-  transition: 0.2s ease-in;
-  &:hover {
-    color: ${(props) => props.theme.color2};
-  }
-`;
 const SubmitBtn = styled.button`
   @keyframes initAniBtn {
     0% {
@@ -88,7 +75,7 @@ const SubmitBtn = styled.button`
   color: ${(props) => props.theme.color};
   font-size: 20px;
   font-weight: bold;
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
   border-radius: 5px;
   box-shadow: 0px 2px 2px 2px rgba(176, 155, 133, 0.3);
   transition: 0.2s ease-in;
@@ -136,10 +123,8 @@ function LogInPage() {
           style={{ animationDelay: "0.15s" }}
         ></Input>
       </FormContainer>
-      <Text style={{ animationDelay: "0.3s" }}>forgot ID?</Text>
-      <Text style={{ animationDelay: "0.45s" }}>forgot password?</Text>
       <Link to="/home">
-        <SubmitBtn style={{ animationDelay: "0.6s" }}>Login</SubmitBtn>
+        <SubmitBtn style={{ animationDelay: "0.3s" }}>Login</SubmitBtn>
       </Link>
     </Container>
   );
