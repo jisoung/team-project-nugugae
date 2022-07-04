@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link, Outlet } from "react-router-dom";
-import TitleLogo from "../Components/LogIn/btns/titleLogo";
+import TitleLogo from "../Components/LogIn/titleLogo";
 
 const Container = styled.div`
   display: flex;

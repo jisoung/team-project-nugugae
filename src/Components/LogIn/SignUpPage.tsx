@@ -1,14 +1,19 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import TitleLogo from "./btns/titleLogo";
-
+import TitleLogo from "./titleLogo";
+import { useState } from "react";
 interface IForm {
   id: string;
   password: string;
   password2: string;
   name: string;
   phNumber: string;
+  auth: number;
+}
+
+interface IAuthInput {
+  isAuthOn: boolean;
 }
 const Exit = styled.button`
   position: absolute;
@@ -38,10 +43,21 @@ const FormContainer = styled.form`
   flex-direction: column;
 `;
 const Input = styled.input`
+  @keyframes initAni {
+    0% {
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  animation: initAni 0.3s forwards;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
+  opacity: 0;
   color: ${(props) => props.theme.color};
   font-size: larger;
   border: 0px solid;
@@ -57,6 +73,17 @@ const Input = styled.input`
   }
 `;
 const SubmitBtn = styled.button`
+  @keyframes initAniBtn {
+    0% {
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  opacity: 0;
+  animation: initAniBtn 0.3s forwards;
   position: relative;
   left: 50px;
   background-color: ${(props) => props.theme.color2};
@@ -76,6 +103,8 @@ const SubmitBtn = styled.button`
   }
 `;
 const AuthBtn = styled.button`
+  opacity: 0;
+  animation: initAni 0.3s forwards;
   font-weight: bold;
   width: 50px;
   height: 50px;
@@ -94,8 +123,37 @@ const ErrorModal = styled.span`
   font-size: 15px;
   color: #b0b0b07d;
 `;
+const AuthInput = styled.input<IAuthInput>`
+  @keyframes authInputAni {
+    0% {
+      transform: translateY(30px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  animation: ${(props) => props.isAuthOn && "authInputAni 0.5s forwards"};
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  color: ${(props) => props.theme.color};
+  font-size: larger;
+  border: 0px solid;
+  background-color: ${(props) => props.theme.color3};
+  border-radius: 30px;
+  outline: none;
+  width: 400px;
+  height: 50px;
+  padding: 0px 0px 0px 30px;
+  margin: 0px 0px 30px 0px;
+  &::placeholder {
+    color: #ffffff7e;
+  }
+`;
 
 function SignUpPage() {
+  const [isAuthOn, setIsAuthOn] = useState(false);
   const {
     register,
     handleSubmit,
@@ -112,7 +170,9 @@ function SignUpPage() {
       );
     }
   };
-  console.log(errors);
+  const authBtnOnClick = () => {
+    setIsAuthOn(true);
+  };
   return (
     <Container>
       <TitleLogo />
@@ -147,6 +207,7 @@ function SignUpPage() {
             },
           })}
           placeholder="please write id..."
+          style={{ animationDelay: "0.15s" }}
         ></Input>
         <ErrorModal>{errors.id?.message}</ErrorModal>
         <Input
@@ -162,6 +223,7 @@ function SignUpPage() {
             },
           })}
           placeholder="please write password..."
+          style={{ animationDelay: "0.3s" }}
         ></Input>
         <ErrorModal>{errors.password?.message}</ErrorModal>
         <Input
@@ -173,6 +235,7 @@ function SignUpPage() {
             },
           })}
           placeholder="Please write the same password"
+          style={{ animationDelay: "0.45s" }}
         ></Input>
         <ErrorModal>{errors.password2?.message}</ErrorModal>
         <span>
@@ -184,13 +247,28 @@ function SignUpPage() {
               },
             })}
             placeholder="please write your phone number..."
-            style={{ width: "350px" }}
+            style={{ width: "350px", animationDelay: "0.6s" }}
             type="number"
           ></Input>
-          <AuthBtn>인증</AuthBtn>
+          <AuthBtn onClick={authBtnOnClick} style={{ animationDelay: "0.75s" }}>
+            인증
+          </AuthBtn>
         </span>
         <ErrorModal>{errors.phNumber?.message}</ErrorModal>
-        <SubmitBtn>Sign Up</SubmitBtn>
+        {isAuthOn && (
+          <AuthInput
+            isAuthOn={isAuthOn}
+            {...register("auth", {
+              required: {
+                value: true,
+                message: "The verification code is incorrect.",
+              },
+            })}
+            placeholder="please write your The verification code..."
+            type="number"
+          />
+        )}
+        <SubmitBtn style={{ animationDelay: "1s" }}>Sign Up</SubmitBtn>
       </FormContainer>
     </Container>
   );

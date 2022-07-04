@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TitleLogo from "../LogIn/btns/titleLogo";
+import TitleLogo from "../LogIn/titleLogo";
 import { faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

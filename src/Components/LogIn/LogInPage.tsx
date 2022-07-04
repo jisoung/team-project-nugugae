@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import TitleLogo from "./btns/titleLogo";
+import TitleLogo from "./titleLogo";
 
 const Exit = styled.button`
   position: absolute;
@@ -31,6 +31,18 @@ const FormContainer = styled.form`
   flex-direction: column;
 `;
 const Input = styled.input`
+  @keyframes initAni {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  opacity: 0;
+  animation: initAni 0.3s forwards;
   color: ${(props) => props.theme.color4};
   font-size: larger;
   border: 0px solid;
@@ -44,6 +56,8 @@ const Input = styled.input`
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
 `;
 const Text = styled.p`
+  opacity: 0;
+  animation: initAni 0.3s forwards;
   cursor: pointer;
   font-size: 15px;
   font-weight: 200;
@@ -55,6 +69,8 @@ const Text = styled.p`
   }
 `;
 const SubmitBtn = styled.button`
+  animation: initAni 0.3s forwards;
+  opacity: 0;
   background-color: ${(props) => props.theme.color4};
   width: 200px;
   height: 50px;
@@ -107,12 +123,13 @@ function LogInPage() {
             },
           })}
           placeholder="please write password..."
+          style={{ animationDelay: "0.15s" }}
         ></Input>
       </FormContainer>
-      <Text>forgot ID?</Text>
-      <Text>forgot password?</Text>
+      <Text style={{ animationDelay: "0.3s" }}>forgot ID?</Text>
+      <Text style={{ animationDelay: "0.45s" }}>forgot password?</Text>
       <Link to="/home">
-        <SubmitBtn>Login</SubmitBtn>
+        <SubmitBtn style={{ animationDelay: "0.6s" }}>Login</SubmitBtn>
       </Link>
     </Container>
   );

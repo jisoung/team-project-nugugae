@@ -29,14 +29,15 @@ const TextNomal = styled.span`
   @keyframes TextAni {
     0% {
       opacity: 0;
-      transform: translateY(-30px);
+      transform: translateY(30px);
     }
     100% {
       opacity: 1;
       transform: translateX(0px);
     }
   }
-  animation: 0.5s TextAni 0.5s forwards;
+  animation: 0.5s TextAni forwards;
+  animation-fill-mode: forwards;
   opacity: 0;
   font-size: 36px;
   font-weight: 10;
