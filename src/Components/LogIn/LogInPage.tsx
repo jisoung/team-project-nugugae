@@ -69,7 +69,17 @@ const Text = styled.p`
   }
 `;
 const SubmitBtn = styled.button`
-  animation: initAni 0.3s forwards;
+  @keyframes initAniBtn {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  animation: initAniBtn 0.3s forwards;
   opacity: 0;
   background-color: ${(props) => props.theme.color4};
   width: 200px;
