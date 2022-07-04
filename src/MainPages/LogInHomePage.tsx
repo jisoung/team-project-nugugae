@@ -11,6 +11,18 @@ const Container = styled.div`
   height: 100vh;
 `;
 const Btn = styled.button`
+  @keyframes initAni {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  opacity: 0;
+  animation: initAni 0.3s forwards;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -41,7 +53,9 @@ function LogInHomePage() {
         <Btn name="logIn">LOGIN</Btn>
       </Link>
       <Link to="signUp">
-        <Btn name="signUp">SIGN UP</Btn>
+        <Btn name="signUp" style={{ animationDelay: "0.15s" }}>
+          SIGN UP
+        </Btn>
       </Link>
       <Outlet />
     </Container>
