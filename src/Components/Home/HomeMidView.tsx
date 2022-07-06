@@ -7,7 +7,6 @@ const MidContainer = styled.div`
   margin-left: 150px;
   margin-top: 130px;
 `;
-
 const TextTitle = styled.h1`
   @keyframes TitleAni {
     0% {
@@ -24,7 +23,6 @@ const TextTitle = styled.h1`
   font-size: 48px;
   margin-bottom: 20px;
 `;
-
 const TextNomal = styled.span`
   @keyframes TextAni {
     0% {
@@ -44,7 +42,6 @@ const TextNomal = styled.span`
   color: ${(props) => props.theme.color2};
   margin-bottom: 5px;
 `;
-
 const TextBold = styled(TextNomal)`
   color: ${(props) => props.theme.color4};
   font-weight: 500;
