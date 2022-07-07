@@ -1,157 +1,16 @@
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import { useState } from "react";
 import axios from "axios";
+import * as S from "../../Styles/Login/LoginStyle";
+
 interface IForm {
   id: string;
   password: string;
   password2: string;
   name: string;
-  email: string;
-  auth: number;
-  authing: boolean;
 }
-interface IAuthInput {
-  isAuthOn: boolean;
-}
-const Exit = styled.button`
-  position: absolute;
-  border: 0px solid;
-  left: 0px;
-  top: 0px;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0);
-  color: black;
-  cursor: pointer;
-  transition: 0.3s ease-in;
-  &:hover {
-    color: ${(props) => props.theme.color3};
-  }
-`;
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-`;
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-const Input = styled.input`
-  @keyframes initAni {
-    0% {
-      transform: translateX(-40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-  animation: initAni 0.3s forwards;
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-  opacity: 0;
-  color: ${(props) => props.theme.color};
-  font-size: larger;
-  border: 0px solid;
-  background-color: ${(props) => props.theme.color3};
-  border-radius: 30px;
-  outline: none;
-  width: 400px;
-  height: 50px;
-  padding: 0px 0px 0px 30px;
-  margin: 0px 0px 0px 0px;
-  &::placeholder {
-    color: #ffffff7e;
-  }
-`;
-const SubmitBtn = styled.button`
-  @keyframes initAniBtn {
-    0% {
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-  opacity: 0;
-  animation: initAniBtn 0.3s forwards;
-  position: relative;
-  left: 50px;
-  background-color: ${(props) => props.theme.color2};
-  width: 300px;
-  height: 50px;
-  border: 0;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  margin: 10px 0 0 0;
-  border-radius: 5px;
-  box-shadow: 0px 2px 2px 2px rgba(176, 155, 133, 0.3);
-  transition: 0.2s ease-in;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3);
-  }
-`;
-const AuthBtn = styled.button`
-  opacity: 0;
-  animation: initAni 0.3s forwards;
-  font-weight: bold;
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  border: 0;
-  box-shadow: 0px 2px 2px 2px rgba(176, 155, 133, 0.3);
-  background-color: ${(props) => props.theme.color3};
-  transition: 0.2s ease-in;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0px 2px 0px 0px rgba(176, 155, 133, 0.3);
-  }
-`;
-const ErrorModal = styled.span`
-  margin: 5px 0px 5px 40px;
-  font-size: 15px;
-  color: #b0b0b07d;
-`;
-const AuthInput = styled.input<IAuthInput>`
-  @keyframes authInputAni {
-    0% {
-      transform: translateY(30px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-  animation: ${(props) => props.isAuthOn && "authInputAni 0.5s forwards"};
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-  color: ${(props) => props.theme.color};
-  font-size: larger;
-  border: 0px solid;
-  background-color: ${(props) => props.theme.color3};
-  border-radius: 30px;
-  outline: none;
-  width: 400px;
-  height: 50px;
-  padding: 0px 0px 0px 30px;
-  margin: 0px 0px 30px 0px;
-  &::placeholder {
-    color: #ffffff7e;
-  }
-`;
 
 function SignUpPage() {
   const [isAuthOn, setIsAuthOn] = useState(false);
@@ -161,12 +20,7 @@ function SignUpPage() {
     formState: { errors },
     setError,
   } = useForm<IForm>();
-  const {
-    register: authRegister,
-    handleSubmit: authHandleSubmit,
-    formState: { errors: authErrors },
-    setError: authSetError,
-  } = useForm();
+  const { register: authRegister, handleSubmit: authHandleSubmit } = useForm();
   const onSubmit = (data: IForm) => {
     console.log(data);
     if (data.password !== data.password2) {
@@ -176,23 +30,21 @@ function SignUpPage() {
         { shouldFocus: true }
       );
     }
-    if (data.authing) {
-      setIsAuthOn(true);
-    } else {
-      axios.post<IAuthInput>("/api/auth/email", {});
-    }
   };
-  const authSumbit = (event: any) => {
-    console.log("auth");
+  const authSumbit = async (data: any) => {
+    setIsAuthOn(true);
+    await axios.post("http:192.168.137.232:9090", {
+      email: `${data.email}`,
+    });
   };
   return (
-    <Container>
+    <S.Container>
       <TitleLogo />
       <Link to="/">
-        <Exit>&larr;</Exit>
+        <S.Exit>&larr;</S.Exit>
       </Link>
-      <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <Input
+      <S.FormContainer as="form" onSubmit={handleSubmit(onSubmit)}>
+        <S.Input
           {...register("name", {
             required: {
               value: true,
@@ -205,9 +57,9 @@ function SignUpPage() {
           })}
           placeholder="please write name..."
           style={{ width: "250px", marginTop: "20px" }}
-        ></Input>
-        <ErrorModal>{errors.name?.message}</ErrorModal>
-        <Input
+        ></S.Input>
+        <S.ErrorModal>{errors.name?.message}</S.ErrorModal>
+        <S.Input
           {...register("id", {
             required: {
               value: true,
@@ -220,9 +72,9 @@ function SignUpPage() {
           })}
           placeholder="please write id..."
           style={{ animationDelay: "0.15s" }}
-        ></Input>
-        <ErrorModal>{errors.id?.message}</ErrorModal>
-        <Input
+        ></S.Input>
+        <S.ErrorModal>{errors.id?.message}</S.ErrorModal>
+        <S.Input
           type="password"
           {...register("password", {
             required: {
@@ -236,9 +88,9 @@ function SignUpPage() {
           })}
           placeholder="please write password..."
           style={{ animationDelay: "0.3s" }}
-        ></Input>
-        <ErrorModal>{errors.password?.message}</ErrorModal>
-        <Input
+        ></S.Input>
+        <S.ErrorModal>{errors.password?.message}</S.ErrorModal>
+        <S.Input
           type="password"
           {...register("password2", {
             required: {
@@ -248,11 +100,11 @@ function SignUpPage() {
           })}
           placeholder="Please write the same password"
           style={{ animationDelay: "0.45s" }}
-        ></Input>
-        <ErrorModal>{errors.password2?.message}</ErrorModal>
-        <span>
-          <Input
-            {...register("email", {
+        ></S.Input>
+        <S.ErrorModal>{errors.password2?.message}</S.ErrorModal>
+        <span style={{ display: "flex" }}>
+          <S.Input
+            {...authRegister("email", {
               required: {
                 value: true,
                 message: "Your Id is required",
@@ -261,21 +113,22 @@ function SignUpPage() {
             placeholder="please write your phone number..."
             style={{ width: "350px", animationDelay: "0.6s" }}
             type="email"
-          ></Input>
-          <form onSubmit={authHandleSubmit(authSumbit)}>
-            <AuthBtn
-              {...authRegister("authing")}
+          ></S.Input>
+          <form onClick={authHandleSubmit(authSumbit)}>
+            <S.AuthBtn
+              {...authRegister}
               style={{ animationDelay: "0.75s" }}
+              type="submit"
             >
               인증
-            </AuthBtn>
+            </S.AuthBtn>
           </form>
         </span>
-        <ErrorModal>{errors.email?.message}</ErrorModal>
+        {/* <S.ErrorModal>{errors.email?.message}</S.ErrorModal> */}
         {isAuthOn && (
-          <AuthInput
+          <S.AuthInput
             isAuthOn={isAuthOn}
-            {...register("auth", {
+            {...authRegister("auth", {
               required: {
                 value: true,
                 message: "The authentication code is require.",
@@ -285,9 +138,9 @@ function SignUpPage() {
             type="number"
           />
         )}
-        <SubmitBtn style={{ animationDelay: "1s" }}>Sign Up</SubmitBtn>
-      </FormContainer>
-    </Container>
+        <S.SubmitBtn style={{ animationDelay: "1s" }}>Sign Up</S.SubmitBtn>
+      </S.FormContainer>
+    </S.Container>
   );
 }
 
