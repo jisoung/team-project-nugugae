@@ -3,15 +3,16 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import { useState } from "react";
+import axios from "axios";
 interface IForm {
   id: string;
   password: string;
   password2: string;
   name: string;
-  phNumber: string;
+  email: string;
   auth: number;
+  authing: boolean;
 }
-
 interface IAuthInput {
   isAuthOn: boolean;
 }
@@ -160,6 +161,12 @@ function SignUpPage() {
     formState: { errors },
     setError,
   } = useForm<IForm>();
+  const {
+    register: authRegister,
+    handleSubmit: authHandleSubmit,
+    formState: { errors: authErrors },
+    setError: authSetError,
+  } = useForm();
   const onSubmit = (data: IForm) => {
     console.log(data);
     if (data.password !== data.password2) {
@@ -169,9 +176,14 @@ function SignUpPage() {
         { shouldFocus: true }
       );
     }
+    if (data.authing) {
+      setIsAuthOn(true);
+    } else {
+      axios.post<IAuthInput>("/api/auth/email", {});
+    }
   };
-  const authBtnOnClick = () => {
-    setIsAuthOn(true);
+  const authSumbit = (event: any) => {
+    console.log("auth");
   };
   return (
     <Container>
@@ -240,7 +252,7 @@ function SignUpPage() {
         <ErrorModal>{errors.password2?.message}</ErrorModal>
         <span>
           <Input
-            {...register("phNumber", {
+            {...register("email", {
               required: {
                 value: true,
                 message: "Your Id is required",
@@ -248,23 +260,28 @@ function SignUpPage() {
             })}
             placeholder="please write your phone number..."
             style={{ width: "350px", animationDelay: "0.6s" }}
-            type="number"
+            type="email"
           ></Input>
-          <AuthBtn onClick={authBtnOnClick} style={{ animationDelay: "0.75s" }}>
-            인증
-          </AuthBtn>
+          <form onSubmit={authHandleSubmit(authSumbit)}>
+            <AuthBtn
+              {...authRegister("authing")}
+              style={{ animationDelay: "0.75s" }}
+            >
+              인증
+            </AuthBtn>
+          </form>
         </span>
-        <ErrorModal>{errors.phNumber?.message}</ErrorModal>
+        <ErrorModal>{errors.email?.message}</ErrorModal>
         {isAuthOn && (
           <AuthInput
             isAuthOn={isAuthOn}
             {...register("auth", {
               required: {
                 value: true,
-                message: "The verification code is incorrect.",
+                message: "The authentication code is require.",
               },
             })}
-            placeholder="please write your The verification code..."
+            placeholder="please write your The authentication code..."
             type="number"
           />
         )}
