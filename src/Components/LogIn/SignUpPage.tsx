@@ -12,8 +12,12 @@ interface IForm {
   name: string;
 }
 
+interface IAuth {
+  email?: string;
+}
 function SignUpPage() {
   const [isAuthOn, setIsAuthOn] = useState(false);
+  const [email, setEmail] = useState("");
   const {
     register,
     handleSubmit,
@@ -30,12 +34,21 @@ function SignUpPage() {
         { shouldFocus: true }
       );
     }
+    const url = "http://192.168.137.232:9090/api/auth/signup?";
   };
-  const authSumbit = async (data: any) => {
+  const authSumbit = async (data: IAuth) => {
     setIsAuthOn(true);
-    await axios.post("http:192.168.137.232:9090", {
-      email: `${data.email}`,
-    });
+    console.log("auth!");
+    const url = "http://192.168.137.232:9090/api/auth/email?";
+    await axios
+      .post(`${url}email=${data.email}`)
+      .then((Response: any) => {
+        console.log(Response);
+        setEmail(data.email + "");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <S.Container>
@@ -110,7 +123,7 @@ function SignUpPage() {
                 message: "Your Id is required",
               },
             })}
-            placeholder="please write your phone number..."
+            placeholder="please write your email..."
             style={{ width: "350px", animationDelay: "0.6s" }}
             type="email"
           ></S.Input>
