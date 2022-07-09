@@ -1,5 +1,5 @@
 import TitleLogo from "../LogIn/titleLogo";
-import { faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "../../Styles/Home/HomeNavStyle";
 
@@ -25,14 +25,6 @@ function HomeNavView() {
         <S.CtgText>ADOPT</S.CtgText>
         <S.CtgText>SHOP</S.CtgText>
       </S.CtgTexts>
-      <span style={{ marginRight: "auto" }}>
-        <FontAwesomeIcon
-          icon={faSearch}
-          color={"rgba(255, 255, 255, 0.4)"}
-          style={{ marginRight: "-15px" }}
-        />
-        <S.Search />
-      </span>
       <span
         style={{
           marginRight: "100px",
