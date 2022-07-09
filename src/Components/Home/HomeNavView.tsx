@@ -2,12 +2,14 @@ import TitleLogo from "../LogIn/titleLogo";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "../../Styles/Home/HomeNavStyle";
+import { Link } from "react-router-dom";
 
 function HomeNavView() {
   const profileStyle = {
     width: "26px",
     height: "26px",
     marginRight: "30px",
+    cursor: "pointer",
   };
   return (
     <S.NavContainer>
@@ -21,9 +23,15 @@ function HomeNavView() {
         />
       </S.TitleLogoContainer>
       <S.CtgTexts>
-        <S.CtgText>FIND</S.CtgText>
-        <S.CtgText>ADOPT</S.CtgText>
-        <S.CtgText>SHOP</S.CtgText>
+        <S.CtgText>
+          <Link to="find">FIND</Link>
+        </S.CtgText>
+        <S.CtgText>
+          <Link to="adopt">ADOPT</Link>
+        </S.CtgText>
+        <S.CtgText>
+          <Link to="shop">SHOP</Link>
+        </S.CtgText>
       </S.CtgTexts>
       <span
         style={{
