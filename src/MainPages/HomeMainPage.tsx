@@ -1,11 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import HomeMiddleView from "../Components/Home/HomeMidView";
 import HomeNavPage from "../Components/Home/HomeNavView";
 
-interface IHomeRef<T> {
-  current: T | null;
-}
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
