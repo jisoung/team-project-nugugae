@@ -1,69 +1,22 @@
-import styled from "styled-components";
-
-const MidContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-left: 150px;
-  margin-top: 130px;
-`;
-const TextTitle = styled.h1`
-  @keyframes TitleAni {
-    0% {
-      opacity: 0;
-      transform: translateX(-100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-  animation: 0.5s TitleAni;
-  color: ${(props) => props.theme.color4};
-  font-size: 48px;
-  margin-bottom: 20px;
-`;
-const TextNomal = styled.span`
-  @keyframes TextAni {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-  animation: 0.5s TextAni forwards;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  font-size: 36px;
-  font-weight: 10;
-  color: ${(props) => props.theme.color2};
-  margin-bottom: 5px;
-`;
-const TextBold = styled(TextNomal)`
-  color: ${(props) => props.theme.color4};
-  font-weight: 500;
-`;
+import * as S from "../../Styles/Home/HomeMidStyle";
 
 function HomeMidView() {
   return (
-    <MidContainer>
-      <TextTitle>Animals Are Another Family</TextTitle>
-      <TextNomal style={{ animationDelay: "0.2s" }}>
-        Do you want to <TextBold>find</TextBold> a family
-      </TextNomal>
-      <TextNomal style={{ animationDelay: "0.4s" }}>
-        Do you want to <TextBold>adopt</TextBold> a family
-      </TextNomal>
-      <TextNomal style={{ animationDelay: "0.6s" }}>
+    <S.MidContainer>
+      <S.TextTitle>Animals Are Another Family</S.TextTitle>
+      <S.TextNomal style={{ animationDelay: "0.2s" }}>
+        Do you want to <S.TextBold>find</S.TextBold> a family
+      </S.TextNomal>
+      <S.TextNomal style={{ animationDelay: "0.4s" }}>
+        Do you want to <S.TextBold>adopt</S.TextBold> a family
+      </S.TextNomal>
+      <S.TextNomal style={{ animationDelay: "0.6s" }}>
         Why are you hesitating?
-      </TextNomal>
+      </S.TextNomal>
       <br />
       <br />
-      <TextBold style={{ animationDelay: "0.8s" }}>START NOW</TextBold>
-    </MidContainer>
+      <S.TextBold style={{ animationDelay: "0.8s" }}>START NOW</S.TextBold>
+    </S.MidContainer>
   );
 }
 
