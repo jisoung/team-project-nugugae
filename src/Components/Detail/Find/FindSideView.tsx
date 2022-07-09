@@ -1,5 +1,5 @@
 function FindSideView() {
-  return null;
+  return <FindSideView />;
 }
 
 export default FindSideView;
