@@ -25,17 +25,7 @@ export const CtgText = styled.button`
   transition: 0.2s ease-in;
   &:hover {
     color: white;
+    padding-bottom: 2px;
+    border-bottom: 1px solid white;
   }
-`;
-export const Search = styled.input`
-  font-family: Inria Serif;
-  font-size: 18px;
-  border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  height: 30px;
-  outline: none;
-  width: 300px;
-  padding-left: 20px;
-  color: rgba(255, 255, 255, 0.8);
-  background-color: rgba(0, 0, 0, 0);
 `;
