@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import FindMainView from "../../Components/Detail/Find/FindMainView";
 import FindNavView from "../../Components/Detail/Find/FindNavView";
 import FindSideView from "../../Components/Detail/Find/FindSideView";
 
@@ -11,6 +12,7 @@ function FindHomePage() {
     <FindConatiner>
       <FindNavView />
       <FindSideView />
+      <FindMainView />
     </FindConatiner>
   );
 }
