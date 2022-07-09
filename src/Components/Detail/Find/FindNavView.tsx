@@ -7,12 +7,14 @@ function FindNavView() {
   const profileStyle = {
     width: "26px",
     height: "26px",
-    marginRight: "30px",
+    marginRight: "80px",
     cursor: "pointer",
   };
   return (
     <S.NavContainer>
-      <TitleLogo lwidth={30} lheight={30} lhaveText={false} fontSize="30px" />
+      <div style={{ margin: "0px 0px 0px 80px" }}>
+        <TitleLogo lwidth={30} lheight={30} lhaveText={false} fontSize="30px" />
+      </div>
       <div>
         <FontAwesomeIcon
           icon={faUser}
