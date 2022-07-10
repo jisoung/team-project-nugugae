@@ -1,4 +1,4 @@
-import * as S from "../../../Styles/Detail/Find/FindNavStyle";
+import * as S from "../../../Styles/Detail/DetailNavStyle";
 import TitleLogo from "../../LogIn/titleLogo";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
