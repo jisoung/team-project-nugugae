@@ -1,5 +1,5 @@
 function FindSideView() {
-  return <h1>title</h1>;
+  return <h1>side</h1>;
 }
 
 export default FindSideView;
