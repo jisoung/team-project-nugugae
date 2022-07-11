@@ -5,5 +5,5 @@ export const NavContainer = styled.div`
   width: 100vw;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 40px;
+  margin-top: 60px;
 `;
