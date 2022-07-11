@@ -7,3 +7,21 @@ export const NavContainer = styled.div`
   align-items: flex-start;
   margin-top: 60px;
 `;
+export const CtgTexts = styled.div`
+  display: flex;
+  margin-left: auto;
+`;
+export const CtgText = styled.button`
+  height: 30px;
+  cursor: pointer;
+  font-family: Inria Sans;
+  font-weight: 200;
+  margin: 0px 20px 0px 0px;
+  border: 0;
+  color: ${(props) => props.theme.color};
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.2s ease-in;
+  &:hover {
+    color: ${(props) => props.theme.color2};
+  }
+`;
