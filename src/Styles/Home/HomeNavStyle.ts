@@ -25,7 +25,5 @@ export const CtgText = styled.button`
   transition: 0.2s ease-in;
   &:hover {
     color: white;
-    padding-bottom: 2px;
-    border-bottom: 1px solid white;
   }
 `;
