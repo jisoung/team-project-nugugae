@@ -12,16 +12,17 @@ const SmpMainContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-function FindHomePage() {
+
+function PGShopHome() {
   return (
     <SmpContainer>
-      <SmpNavView haveLine="find" />
+      <SmpNavView haveLine="shop" />
       <SmpMainContainer>
-        <SmpSideView title="FIND" />
+        <SmpSideView title="SHOP" />
         <SmpMainView />
       </SmpMainContainer>
     </SmpContainer>
   );
 }
 
-export default FindHomePage;
+export default PGShopHome;

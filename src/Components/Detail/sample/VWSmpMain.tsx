@@ -1,5 +1,5 @@
 function FindMainView() {
-  return <h1>find main</h1>;
+  return null;
 }
 
 export default FindMainView;

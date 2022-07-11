@@ -4,7 +4,10 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-function FindNavView() {
+interface INavCtgProps {
+  haveLine: string;
+}
+function FindNavView({ haveLine }: INavCtgProps) {
   const profileStyle = {
     width: "26px",
     height: "26px",
@@ -25,13 +28,13 @@ function FindNavView() {
         </div>
       </Link>
       <S.CtgTexts>
-        <S.CtgText haveLine={true}>
+        <S.CtgText haveLine={haveLine === "find"}>
           <Link to="/find">FIND</Link>
         </S.CtgText>
-        <S.CtgText>
+        <S.CtgText haveLine={haveLine === "adopt"}>
           <Link to="/adopt">ADOPT</Link>
         </S.CtgText>
-        <S.CtgText>
+        <S.CtgText haveLine={haveLine === "shop"}>
           <Link to="/shop">SHOP</Link>
         </S.CtgText>
       </S.CtgTexts>

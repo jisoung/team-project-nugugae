@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+interface ITextProps {
+  haveLine: boolean;
+}
 export const NavContainer = styled.div`
   display: flex;
   width: 100vw;
@@ -11,7 +14,7 @@ export const CtgTexts = styled.div`
   display: flex;
   margin-left: auto;
 `;
-export const CtgText = styled.button<{ haveLine?: boolean }>`
+export const CtgText = styled.button<ITextProps>`
   height: 30px;
   width: 70px;
   cursor: pointer;

@@ -12,16 +12,17 @@ const SmpMainContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-function FindHomePage() {
+
+function PGAdoptHome() {
   return (
     <SmpContainer>
-      <SmpNavView haveLine="find" />
+      <SmpNavView haveLine="adopt" />
       <SmpMainContainer>
-        <SmpSideView title="FIND" />
+        <SmpSideView title="ADOPT" />
         <SmpMainView />
       </SmpMainContainer>
     </SmpContainer>
   );
 }
 
-export default FindHomePage;
+export default PGAdoptHome;

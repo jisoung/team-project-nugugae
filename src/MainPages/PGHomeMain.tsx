@@ -13,12 +13,8 @@ const MainContainer = styled.div`
   height: 100vh;
 `;
 function HomeMainPage() {
-  const homeRef = React.useRef<HTMLInputElement>(null);
-  homeRef.current?.addEventListener("wheel", (event) => {
-    console.log(event);
-  });
   return (
-    <MainContainer ref={homeRef}>
+    <MainContainer>
       <HomeNavPage />
       <HomeMiddleView />
     </MainContainer>
