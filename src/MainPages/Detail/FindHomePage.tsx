@@ -8,14 +8,16 @@ const SmpContainer = styled.div`
   flex-direction: column;
 `;
 const SmpMainContainer = styled.div`
+  height: 50vh;
   display: flex;
+  align-items: center;
 `;
 function FindHomePage() {
   return (
     <SmpContainer>
       <SmpNavView />
       <SmpMainContainer>
-        <SmpSideView />
+        <SmpSideView title="FIND" />
         <SmpMainView />
       </SmpMainContainer>
     </SmpContainer>
