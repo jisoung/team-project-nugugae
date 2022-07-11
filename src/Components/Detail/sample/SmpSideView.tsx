@@ -25,15 +25,9 @@ function SmpSideView({ title }: ISideProps) {
           <S.CategoryBtn onClick={onClick}>-</S.CategoryBtn>
         </div>
         <S.CategoryUl>
-          <S.CategoryLi menuOn={isMenuOn} delay={0}>
-            DOG
-          </S.CategoryLi>
-          <S.CategoryLi menuOn={isMenuOn} delay={0.15}>
-            CAT
-          </S.CategoryLi>
-          <S.CategoryLi menuOn={isMenuOn} delay={0.3}>
-            OTHER
-          </S.CategoryLi>
+          <S.CategoryLi menuOn={isMenuOn}>DOG</S.CategoryLi>
+          <S.CategoryLi menuOn={isMenuOn}>CAT</S.CategoryLi>
+          <S.CategoryLi menuOn={isMenuOn}>OTHER</S.CategoryLi>
         </S.CategoryUl>
       </S.Category>
     </S.SideContainer>
