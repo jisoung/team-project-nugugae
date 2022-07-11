@@ -14,13 +14,15 @@ function HomeNavView() {
   return (
     <S.NavContainer>
       <S.TitleLogoContainer>
-        <TitleLogo
-          lhaveText={false}
-          lwidth={25}
-          lheight={25}
-          fontSize={"25px"}
-          lColor={"white"}
-        />
+        <Link to="/">
+          <TitleLogo
+            lhaveText={false}
+            lwidth={25}
+            lheight={25}
+            fontSize={"25px"}
+            lColor={"white"}
+          />
+        </Link>
       </S.TitleLogoContainer>
       <S.CtgTexts>
         <S.CtgText>
