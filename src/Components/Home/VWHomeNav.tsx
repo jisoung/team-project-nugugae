@@ -42,11 +42,13 @@ function HomeNavView() {
           justifyContent: "center",
         }}
       >
-        <FontAwesomeIcon
-          icon={faUser}
-          color={"rgba(255, 255, 255, 0.5)"}
-          style={profileStyle}
-        />
+        <Link to="/loginHome">
+          <FontAwesomeIcon
+            icon={faUser}
+            color={"rgba(255, 255, 255, 0.5)"}
+            style={profileStyle}
+          />
+        </Link>
       </span>
     </S.NavContainer>
   );

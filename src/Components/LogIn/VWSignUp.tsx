@@ -18,6 +18,7 @@ interface IAuth {
 function SignUpPage() {
   const [isAuthOn, setIsAuthOn] = useState(false);
   const [email, setEmail] = useState("");
+  const [correctAuth, setCorrectAuth] = useState(false);
   const {
     register,
     handleSubmit,
@@ -40,15 +41,19 @@ function SignUpPage() {
     setIsAuthOn(true);
     console.log("auth!");
     const url = "http://192.168.137.232:9090/api/auth/email?";
-    await axios
-      .post(`${url}email=${data.email}`)
-      .then((Response: any) => {
-        console.log(Response);
-        setEmail(data.email + "");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (!correctAuth) {
+      // <------------------------------------------ 테스트 해야할 부분
+      await axios
+        .post(`${url}email=${data.email}`)
+        .then((Response: any) => {
+          console.log(Response);
+          setEmail(data.email + "");
+          setCorrectAuth(true);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
   return (
     <S.Container>
