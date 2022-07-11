@@ -1,7 +1,7 @@
 import TitleLogo from "../LogIn/titleLogo";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as S from "../../Styles/Home/HomeNavStyle";
+import * as S from "../../Styles/Home/STLHomeNav";
 import { Link } from "react-router-dom";
 
 function HomeNavView() {

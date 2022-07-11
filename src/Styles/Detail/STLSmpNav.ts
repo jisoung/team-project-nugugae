@@ -11,13 +11,15 @@ export const CtgTexts = styled.div`
   display: flex;
   margin-left: auto;
 `;
-export const CtgText = styled.button`
+export const CtgText = styled.button<{ haveLine?: boolean }>`
   height: 30px;
+  width: 70px;
   cursor: pointer;
   font-family: Inria Sans;
   font-weight: 200;
   margin: 0px 20px 0px 0px;
   border: 0;
+  border-bottom: ${(props) => props.haveLine && "1px solid"};
   color: ${(props) => props.theme.color};
   background-color: rgba(0, 0, 0, 0);
   transition: 0.2s ease-in;

@@ -1,4 +1,4 @@
-import * as S from "../../Styles/Home/HomeMidStyle";
+import * as S from "../../Styles/Home/STLHomeMid";
 
 function HomeMidView() {
   return (

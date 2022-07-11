@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import { useState } from "react";
 import axios from "axios";
-import * as S from "../../Styles/Login/LoginStyle";
+import * as S from "../../Styles/Login/Components/STLSignUp";
 
 interface IForm {
   id: string;

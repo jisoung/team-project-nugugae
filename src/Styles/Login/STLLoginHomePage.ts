@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { Link, Outlet } from "react-router-dom";
-import TitleLogo from "../Components/LogIn/titleLogo";
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +8,7 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
 `;
-const Btn = styled.button`
+export const Btn = styled.button`
   @keyframes initAni {
     0% {
       opacity: 0;
@@ -44,22 +42,3 @@ const Btn = styled.button`
     box-shadow: 0 0 0 0;
   }
 `;
-
-function LogInHomePage() {
-  return (
-    <Container>
-      <TitleLogo />
-      <Link to="login">
-        <Btn name="logIn">LOGIN</Btn>
-      </Link>
-      <Link to="signUp">
-        <Btn name="signUp" style={{ animationDelay: "0.15s" }}>
-          SIGN UP
-        </Btn>
-      </Link>
-      <Outlet />
-    </Container>
-  );
-}
-
-export default LogInHomePage;

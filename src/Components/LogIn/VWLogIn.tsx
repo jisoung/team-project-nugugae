@@ -123,7 +123,7 @@ function LogInPage() {
           style={{ animationDelay: "0.15s" }}
         ></Input>
       </FormContainer>
-      <Link to="/home">
+      <Link to="/">
         <SubmitBtn style={{ animationDelay: "0.3s" }}>Login</SubmitBtn>
       </Link>
     </Container>

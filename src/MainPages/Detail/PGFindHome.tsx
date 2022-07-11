@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import SmpMainView from "../../Components/Detail/sample/SmpMainView";
-import SmpNavView from "../../Components/Detail/sample/SmpNavView";
-import SmpSideView from "../../Components/Detail/sample/SmpSideView";
+import SmpMainView from "../../Components/Detail/sample/VWSmpMain";
+import SmpNavView from "../../Components/Detail/sample/VWSmpNav";
+import SmpSideView from "../../Components/Detail/sample/VWSmpSide";
 
 const SmpContainer = styled.div`
   display: flex;

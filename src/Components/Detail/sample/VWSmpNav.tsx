@@ -1,4 +1,4 @@
-import * as S from "../../../Styles/Detail/SmpNavStyle";
+import * as S from "../../../Styles/Detail/STLSmpNav";
 import TitleLogo from "../../LogIn/titleLogo";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,9 +25,15 @@ function FindNavView() {
         </div>
       </Link>
       <S.CtgTexts>
-        <S.CtgText>FIND</S.CtgText>
-        <S.CtgText>ADOPT</S.CtgText>
-        <S.CtgText>SHOP</S.CtgText>
+        <S.CtgText haveLine={true}>
+          <Link to="/find">FIND</Link>
+        </S.CtgText>
+        <S.CtgText>
+          <Link to="/adopt">ADOPT</Link>
+        </S.CtgText>
+        <S.CtgText>
+          <Link to="/shop">SHOP</Link>
+        </S.CtgText>
       </S.CtgTexts>
       <div>
         <FontAwesomeIcon
