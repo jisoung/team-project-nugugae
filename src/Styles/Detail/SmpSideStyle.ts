@@ -39,12 +39,11 @@ export const CategoryUl = styled.ul`
   flex-direction: column;
   font-size: 15px;
 `;
-export const CategoryLi = styled.li<{ menuOn: boolean; delay: number }>`
+export const CategoryLi = styled.li<{ menuOn: boolean }>`
   @keyframes listOnAni {
     0% {
       opacity: 0;
       transform: translateY(-10px);
-      transform: rotate3d(0);
     }
     100% {
       opacity: 1;
@@ -61,10 +60,9 @@ export const CategoryLi = styled.li<{ menuOn: boolean; delay: number }>`
       transform: translateY(-10px);
     }
   }
-  --aniDelay: ${(props) => props.delay};
   margin-bottom: 20px;
   animation: ${(props) =>
-    props.menuOn ? `listOnAni 0.5s forwards` : `listOffAni 0.5s forwards`};
+    props.menuOn ? `listOffAni 0.5s forwards` : `listOnAni 0.5s forwards`};
   transition: 0.3s ease;
   cursor: pointer;
   &:hover {
