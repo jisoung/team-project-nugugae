@@ -1,19 +1,24 @@
 import styled from "styled-components";
-import FindMainView from "../../Components/Detail/Find/FindMainView";
-import FindNavView from "../../Components/Detail/Find/FindNavView";
-import FindSideView from "../../Components/Detail/Find/FindSideView";
+import SmpMainView from "../../Components/Detail/sample/SmpMainView";
+import SmpNavView from "../../Components/Detail/sample/SmpNavView";
+import SmpSideView from "../../Components/Detail/sample/SmpSideView";
 
-const FindConatiner = styled.div`
+const SmpContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+const SmpMainContainer = styled.div`
+  display: flex;
+`;
 function FindHomePage() {
   return (
-    <FindConatiner>
-      <FindNavView />
-      <FindSideView />
-      <FindMainView />
-    </FindConatiner>
+    <SmpContainer>
+      <SmpNavView />
+      <SmpMainContainer>
+        <SmpSideView />
+        <SmpMainView />
+      </SmpMainContainer>
+    </SmpContainer>
   );
 }
 
