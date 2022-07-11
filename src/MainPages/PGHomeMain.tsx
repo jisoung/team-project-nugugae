@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import HomeMiddleView from "../Components/Home/VWHomeMid";
-import HomeNavPage from "../Components/Home/VWHomeNav";
+import HomeMiddleView from "../COMPONENTS/Home/VWHomeMid";
+import HomeNavPage from "../COMPONENTS/Home/VWHomeNav";
 
 const MainContainer = styled.div`
   display: flex;

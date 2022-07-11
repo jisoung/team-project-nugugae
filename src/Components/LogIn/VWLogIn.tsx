@@ -1,89 +1,7 @@
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TitleLogo from "./titleLogo";
-
-const Exit = styled.button`
-  position: absolute;
-  border: 0px solid;
-  left: 0px;
-  top: 0px;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0);
-  color: black;
-  cursor: pointer;
-  transition: 0.3s ease-in;
-  &:hover {
-    color: ${(props) => props.theme.color3};
-  }
-`;
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-`;
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-const Input = styled.input`
-  @keyframes initAni {
-    0% {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-  opacity: 0;
-  animation: initAni 0.3s forwards;
-  color: ${(props) => props.theme.color4};
-  font-size: larger;
-  border: 0px solid;
-  background-color: ${(props) => props.theme.color2};
-  border-radius: 30px;
-  outline: none;
-  width: 500px;
-  height: 50px;
-  padding: 0px 0px 0px 30px;
-  margin: 20px;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
-`;
-const SubmitBtn = styled.button`
-  @keyframes initAniBtn {
-    0% {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-  animation: initAniBtn 0.3s forwards;
-  opacity: 0;
-  background-color: ${(props) => props.theme.color4};
-  width: 200px;
-  height: 50px;
-  border: 0;
-  color: ${(props) => props.theme.color};
-  font-size: 20px;
-  font-weight: bold;
-  margin: 20px 0 0 0;
-  border-radius: 5px;
-  box-shadow: 0px 2px 2px 2px rgba(176, 155, 133, 0.3);
-  transition: 0.2s ease-in;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3);
-  }
-`;
+import * as S from "../../STYLES/Login/Components/STLLogin";
 
 function LogInPage() {
   const {
@@ -96,13 +14,13 @@ function LogInPage() {
   };
   console.log(errors);
   return (
-    <Container>
+    <S.Container>
       <TitleLogo />
       <Link to="/">
-        <Exit>&larr;</Exit>
+        <S.Exit>&larr;</S.Exit>
       </Link>
-      <FormContainer onSubmit={handleSubmit(onSubmit)}>
-        <Input
+      <S.FormContainer onSubmit={handleSubmit(onSubmit)}>
+        <S.Input
           {...register("id", {
             required: {
               value: true,
@@ -110,8 +28,8 @@ function LogInPage() {
             },
           })}
           placeholder="please write id..."
-        ></Input>
-        <Input
+        ></S.Input>
+        <S.Input
           type="password"
           {...register("password", {
             required: {
@@ -121,12 +39,12 @@ function LogInPage() {
           })}
           placeholder="please write password..."
           style={{ animationDelay: "0.15s" }}
-        ></Input>
-      </FormContainer>
+        ></S.Input>
+      </S.FormContainer>
       <Link to="/">
-        <SubmitBtn style={{ animationDelay: "0.3s" }}>Login</SubmitBtn>
+        <S.SubmitBtn style={{ animationDelay: "0.3s" }}>Login</S.SubmitBtn>
       </Link>
-    </Container>
+    </S.Container>
   );
 }
 

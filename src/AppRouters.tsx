@@ -1,9 +1,9 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import LogInHomePage from "./MainPages/PGLogInHome";
-import LogInPage from "./Components/LogIn/VWLogIn";
-import SignUpPage from "./Components/LogIn/VWSignUp";
-import HomePage from "./MainPages/PGHomeMain";
-import FindHomePage from "./MainPages/Detail/PGFindHome";
+import LogInHomePage from "./MAINPAGES/PGLogInHome";
+import LogInPage from "./COMPONENTS/LogIn/VWLogIn";
+import SignUpPage from "./COMPONENTS/LogIn/VWSignUp";
+import HomePage from "./MAINPAGES/PGHomeMain";
+import FindHomePage from "./MAINPAGES/Detail/PGFindHome";
 
 function AppRouters() {
   return (

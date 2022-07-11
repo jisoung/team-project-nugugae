@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as S from "../../../Styles/Detail/STLSmpSide";
+import * as S from "../../../STYLES/Detail/STLSmpSide";
 interface ISideProps {
   title: string;
 }

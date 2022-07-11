@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import TitleLogo from "../Components/LogIn/titleLogo";
-import * as S from "../Styles/Login/STLLoginHomePage";
+import TitleLogo from "../COMPONENTS/LogIn/titleLogo";
+import * as S from "../STYLES/Login/STLLoginHomePage";
 
 function LogInHomePage() {
   return (
