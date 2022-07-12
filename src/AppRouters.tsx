@@ -11,7 +11,7 @@ function AppRouters() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />}></Route>
         <Route path="/loginHome" element={<LogInHomePage />} />
         <Route path="/loginHome/login" element={<LogInPage />} />
         <Route path="/loginHome/signUp" element={<SignUpPage />} />
