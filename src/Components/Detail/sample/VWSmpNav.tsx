@@ -28,23 +28,25 @@ function FindNavView({ haveLine }: INavCtgProps) {
         </div>
       </Link>
       <S.CtgTexts>
-        <S.CtgText haveLine={haveLine === "find"}>
-          <Link to="/find">FIND</Link>
-        </S.CtgText>
-        <S.CtgText haveLine={haveLine === "adopt"}>
-          <Link to="/adopt">ADOPT</Link>
-        </S.CtgText>
-        <S.CtgText haveLine={haveLine === "shop"}>
-          <Link to="/shop">SHOP</Link>
-        </S.CtgText>
+        <Link to="/find">
+          <S.CtgText haveLine={haveLine === "find"}>FIND</S.CtgText>
+        </Link>
+        <Link to="/adopt">
+          <S.CtgText haveLine={haveLine === "adopt"}>ADOPT</S.CtgText>
+        </Link>
+        <Link to="/shop">
+          <S.CtgText haveLine={haveLine === "shop"}>SHOP</S.CtgText>
+        </Link>
       </S.CtgTexts>
-      <div>
-        <FontAwesomeIcon
-          icon={faUser}
-          color={"rgba(0, 0, 0, 0.5)"}
-          style={profileStyle}
-        />
-      </div>
+      <Link to="/loginHome">
+        <div>
+          <FontAwesomeIcon
+            icon={faUser}
+            color={"rgba(0, 0, 0, 0.5)"}
+            style={profileStyle}
+          />
+        </div>
+      </Link>
     </S.NavContainer>
   );
 }
