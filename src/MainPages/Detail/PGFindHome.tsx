@@ -1,27 +1,18 @@
-import styled from "styled-components";
 import SmpMainView from "../../COMPONENTS/Detail/sample/VWSmpMain";
 import SmpNavView from "../../COMPONENTS/Detail/sample/VWSmpNav";
 import SmpSideView from "../../COMPONENTS/Detail/sample/VWSmpSide";
+import * as S from "../../STYLES/Detail/STLPGHome";
 
-const SmpContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const SmpMainContainer = styled.div`
-  height: 50vh;
-  display: flex;
-  align-items: center;
-`;
-function FindHomePage() {
+function PGFindHome() {
   return (
-    <SmpContainer>
+    <S.SmpContainer>
       <SmpNavView haveLine="find" />
-      <SmpMainContainer>
+      <S.SmpMainContainer>
         <SmpSideView title="FIND" />
         <SmpMainView />
-      </SmpMainContainer>
-    </SmpContainer>
+      </S.SmpMainContainer>
+    </S.SmpContainer>
   );
 }
 
-export default FindHomePage;
+export default PGFindHome;
