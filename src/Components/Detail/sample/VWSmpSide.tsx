@@ -4,7 +4,7 @@ interface ISideProps {
   title: string;
 }
 
-function SmpSideView({ title }: ISideProps) {
+function VWSmpSide({ title }: ISideProps) {
   const [isMenuOn, setIsMenuOn] = useState(false);
   const onClick = () => {
     setIsMenuOn((current) => !current);
@@ -34,4 +34,4 @@ function SmpSideView({ title }: ISideProps) {
   );
 }
 
-export default SmpSideView;
+export default VWSmpSide;
