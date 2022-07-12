@@ -16,7 +16,7 @@ function LogInPage() {
   return (
     <S.Container>
       <TitleLogo />
-      <Link to="/">
+      <Link to="/loginHome">
         <S.Exit>&larr;</S.Exit>
       </Link>
       <S.FormContainer onSubmit={handleSubmit(onSubmit)}>

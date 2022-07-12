@@ -58,7 +58,7 @@ function SignUpPage() {
   return (
     <S.Container>
       <TitleLogo />
-      <Link to="/">
+      <Link to="/loginHome">
         <S.Exit>&larr;</S.Exit>
       </Link>
       <S.FormContainer as="form" onSubmit={handleSubmit(onSubmit)}>
