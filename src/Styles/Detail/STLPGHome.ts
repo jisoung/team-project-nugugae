@@ -5,7 +5,5 @@ export const SmpContainer = styled.div`
   flex-direction: column;
 `;
 export const SmpMainContainer = styled.div`
-  height: 50vh;
   display: flex;
-  align-items: center;
 `;
