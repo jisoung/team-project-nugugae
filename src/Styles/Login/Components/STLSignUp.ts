@@ -114,7 +114,7 @@ export const ErrorModal = styled.span`
 export const AuthInput = styled.input<IAuthInput>`
   @keyframes authInputAni {
     0% {
-      transform: translateY(30px);
+      transform: translateY(10px);
     }
     100% {
       transform: translateY(0px);
@@ -134,7 +134,7 @@ export const AuthInput = styled.input<IAuthInput>`
   width: 400px;
   height: 50px;
   padding: 0px 0px 0px 30px;
-  margin: 0px 0px 30px 0px;
+  margin: 10px 0px 0px 0px;
   &::placeholder {
     color: #ffffff7e;
   }
