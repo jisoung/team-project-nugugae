@@ -5,6 +5,8 @@ export const SideContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   text-align: justify;
+  margin-left: 40px;
+  margin-top: 50px;
   width: 250px;
   border-color: ${(props) => props.theme.color};
 `;
