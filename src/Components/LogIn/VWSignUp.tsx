@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TitleLogo from "./titleLogo";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import axios from "axios";
 import * as S from "../../STYLES/Login/Components/STLSignUp";
 
@@ -15,9 +15,10 @@ interface IForm {
 interface IAuth {
   email?: string;
 }
-function SignUpPage() {
+function VWSignUp() {
   const [isAuthOn, setIsAuthOn] = useState(false);
   const [email, setEmail] = useState("");
+  const [authNum, setAuthNum] = useState<String>();
   const [correctAuth, setCorrectAuth] = useState(false);
   const {
     register,
@@ -26,7 +27,7 @@ function SignUpPage() {
     setError,
   } = useForm<IForm>();
   const { register: authRegister, handleSubmit: authHandleSubmit } = useForm();
-  const onSubmit = (data: IForm) => {
+  const onSubmit = async (data: IForm) => {
     console.log(data);
     if (data.password !== data.password2) {
       setError(
@@ -35,25 +36,54 @@ function SignUpPage() {
         { shouldFocus: true }
       );
     }
-    const url = "http://192.168.137.232:9090/api/auth/signup?";
+
+    const json = JSON.stringify({
+      email: `${email}`,
+      emailCheckCode: `${authNum}`,
+      pw: `${data.password}`,
+      name: `${data.name}`,
+      userType: "USER",
+    });
+    const config = {
+      method: "post",
+      url: "http://192.168.137.232:8080/api/auth/signup",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: json,
+    };
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   const authSumbit = async (data: IAuth) => {
-    setIsAuthOn(true);
-    console.log("auth!");
-    const url = "http://192.168.137.232:9090/api/auth/email?";
+    const config = {
+      method: "post",
+      url: `http://192.168.137.232:8080/api/auth/email?email=${data.email}`,
+      headers: {},
+    };
     if (!correctAuth) {
-      // <------------------------------------------ 테스트 해야할 부분
-      await axios
-        .post(`${url}email=${data.email}`)
+      await axios(config)
         .then((Response: any) => {
-          console.log(Response);
-          setEmail(data.email + "");
+          console.log(JSON.stringify(Response));
           setCorrectAuth(true);
         })
         .catch((error) => {
+          setCorrectAuth(false);
           console.log(error);
+        })
+        .finally(() => {
+          setIsAuthOn(true);
+          setEmail(data.email + "");
         });
     }
+  };
+  const AuthOnChagne = (event: FormEvent<HTMLInputElement>) => {
+    setAuthNum(event.currentTarget.value);
   };
   return (
     <S.Container>
@@ -133,11 +163,7 @@ function SignUpPage() {
             type="email"
           ></S.Input>
           <form onClick={authHandleSubmit(authSumbit)}>
-            <S.AuthBtn
-              {...authRegister}
-              style={{ animationDelay: "0.75s" }}
-              type="submit"
-            >
+            <S.AuthBtn {...authRegister} style={{ animationDelay: "0.75s" }}>
               인증
             </S.AuthBtn>
           </form>
@@ -153,6 +179,7 @@ function SignUpPage() {
               },
             })}
             placeholder="please write your The authentication code..."
+            onChange={AuthOnChagne}
             type="number"
           />
         )}
@@ -162,4 +189,4 @@ function SignUpPage() {
   );
 }
 
-export default SignUpPage;
+export default VWSignUp;
