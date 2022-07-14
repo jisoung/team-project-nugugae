@@ -38,9 +38,9 @@ function VWSignUp() {
 
     console.log(email, authNum, data.name, data.password);
     const url = "http://10.156.147.167:8090/api/auth/signup";
-    axios({
+    await axios({
       method: "post",
-      url,
+      url: url,
       headers: {
         "Content-Type": "application/json",
       },
