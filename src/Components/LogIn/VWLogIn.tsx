@@ -10,8 +10,26 @@ function LogInPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = (props: any) => {
+    const data = JSON.stringify({
+      email: `${props.email}`,
+      pw: `${props.password}`,
+    });
+    const config = {
+      method: "post",
+      url: "http://192.168.137.232:8080/api/auth/login",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   console.log(errors);
   return (
@@ -20,12 +38,12 @@ function LogInPage() {
       <Link to="/loginHome">
         <S.Exit>&larr;</S.Exit>
       </Link>
-      <S.FormContainer onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <S.Input
-          {...register("id", {
+          {...register("email", {
             required: {
               value: true,
-              message: "Your Id is required",
+              message: "Your Email is required",
             },
           })}
           placeholder="please write id..."
@@ -41,8 +59,8 @@ function LogInPage() {
           placeholder="please write password..."
           style={{ animationDelay: "0.15s" }}
         ></S.Input>
-      </S.FormContainer>
-      <S.SubmitBtn style={{ animationDelay: "0.3s" }}>Login</S.SubmitBtn>
+        <S.SubmitBtn style={{ animationDelay: "0.3s" }}>Login</S.SubmitBtn>
+      </form>
     </S.Container>
   );
 }
