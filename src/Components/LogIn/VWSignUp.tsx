@@ -28,7 +28,6 @@ function VWSignUp() {
   } = useForm<IForm>();
   const { register: authRegister, handleSubmit: authHandleSubmit } = useForm();
   const onSubmit = async (data: IForm) => {
-    console.log(data);
     if (data.password !== data.password2) {
       setError(
         "password2",
@@ -37,24 +36,24 @@ function VWSignUp() {
       );
     }
 
-    const json = JSON.stringify({
-      email: `${email}`,
-      emailCheckCode: `${authNum}`,
-      pw: `${data.password}`,
-      name: `${data.name}`,
-      userType: "USER",
-    });
-    const config = {
+    console.log(email, authNum, data.name, data.password);
+    const url = "http://10.156.147.167:8090/api/auth/signup";
+    axios({
       method: "post",
-      url: "http://192.168.137.232:8080/api/auth/signup",
+      url,
       headers: {
         "Content-Type": "application/json",
       },
-      data: json,
-    };
-    axios(config)
+      data: {
+        email: `${email}`,
+        emailCheckCode: `${authNum}`,
+        pw: `${data.password}`,
+        name: `${data.name}`,
+        userType: "USER",
+      },
+    })
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
@@ -63,8 +62,7 @@ function VWSignUp() {
   const authSumbit = async (data: IAuth) => {
     const config = {
       method: "post",
-      url: `http://192.168.137.232:8080/api/auth/email?email=${data.email}`,
-      headers: {},
+      url: `http://10.156.147.167:8090/api/auth/email?email=${data.email}`,
     };
     if (!correctAuth) {
       await axios(config)
@@ -104,7 +102,7 @@ function VWSignUp() {
             },
           })}
           placeholder="please write name..."
-          style={{ width: "250px", marginTop: "20px" }}
+          style={{ marginTop: "20px" }}
         ></S.Input>
         <S.ErrorModal>{errors.name?.message}</S.ErrorModal>
         <S.Input
