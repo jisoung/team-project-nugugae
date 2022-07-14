@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import * as S from "../../STYLES/Login/Components/STLLogin";
+import axios from "axios";
 
 function LogInPage() {
   const {
@@ -41,9 +42,7 @@ function LogInPage() {
           style={{ animationDelay: "0.15s" }}
         ></S.Input>
       </S.FormContainer>
-      <Link to="/">
-        <S.SubmitBtn style={{ animationDelay: "0.3s" }}>Login</S.SubmitBtn>
-      </Link>
+      <S.SubmitBtn style={{ animationDelay: "0.3s" }}>Login</S.SubmitBtn>
     </S.Container>
   );
 }
