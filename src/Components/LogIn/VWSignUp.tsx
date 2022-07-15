@@ -35,28 +35,27 @@ function VWSignUp() {
         { shouldFocus: true }
       );
     }
-
-    console.log(email, authNum, data.name, data.password);
-    const url = "http://10.156.147.167:8090/api/auth/signup";
-    await axios({
+    let jsonData = JSON.stringify({
+      email: `${email}`,
+      emailCheckCode: `${authNum}`,
+      pw: `${data.password}`,
+      name: `${data.name}`,
+      userType: "USER",
+    });
+    let config = {
       method: "post",
-      url,
+      url: "http://10.156.147.167:8090/api/auth/signup",
       headers: {
-        withCredentials: true,
         "Content-Type": "application/json",
       },
-      data: {
-        email: `${email}`,
-        emailCheckCode: `${authNum}`,
-        pw: `${data.password}`,
-        name: `${data.name}`,
-        userType: "USER",
-      },
-    })
-      .then(function (response) {
-        console.log(response);
+      maxRedirects: 0,
+      data: jsonData,
+    };
+    axios(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
