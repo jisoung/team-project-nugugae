@@ -10,35 +10,40 @@ function LogInPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (props: any) => {
-    const data = JSON.stringify({
-      email: `${props.email}`,
-      pw: `${props.password}`,
+  const onSubmit = ({ email, password }) => {
+    let data = JSON.stringify({
+      email: `${email}`,
+      pw: `${password}`,
     });
-    const config = {
+
+    let config = {
       method: "post",
       url: "http://192.168.137.232:8080/api/auth/login",
       headers: {
         "Content-Type": "application/json",
       },
+      maxRedirects: 0,
       data: data,
     };
+
     axios(config)
-      .then(function (response) {
+      .then((response) => {
         console.log(JSON.stringify(response.data));
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
-  console.log(errors);
   return (
     <S.Container>
       <TitleLogo />
       <Link to="/loginHome">
         <S.Exit>&larr;</S.Exit>
       </Link>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <S.Input
           {...register("email", {
             required: {
