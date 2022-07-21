@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import { FormEvent, useState } from "react";
 import axios from "axios";
@@ -28,6 +28,7 @@ function VWSignUp() {
     formState: { errors },
     setError,
   } = useForm<IForm>();
+  const navigate = useNavigate();
   const { register: authRegister, handleSubmit: authHandleSubmit } = useForm();
   const onSubmit = async (data: IForm) => {
     if (data.password !== data.password2) {
@@ -59,6 +60,7 @@ function VWSignUp() {
           setIsSignUp(true);
           console.log(response.data["accessToken"]);
           setAcsToken(response.data["accessToken"]);
+          navigate("/loginHome", { replace: true });
         })
         .catch((error) => {
           console.log(error);
