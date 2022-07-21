@@ -4,6 +4,8 @@ import TitleLogo from "./titleLogo";
 import { FormEvent, useState } from "react";
 import axios from "axios";
 import * as S from "../../STYLES/Login/Components/STLSignUp";
+import { useSetRecoilState } from "recoil";
+import { tokenState } from "../../atom";
 
 interface IForm {
   id: string;
@@ -16,12 +18,12 @@ interface IAuth {
   email?: string;
 }
 function VWSignUp() {
-  const [acsToken, setAcsToken] = useState("");
   const [isAuthOn, setIsAuthOn] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [authNum, setAuthNum] = useState<String>();
   const [correctAuth, setCorrectAuth] = useState(false);
+  const setTokenAtom = useSetRecoilState(tokenState);
   const {
     register,
     handleSubmit,
@@ -58,8 +60,7 @@ function VWSignUp() {
       axios(config)
         .then((response) => {
           setIsSignUp(true);
-          console.log(response.data["accessToken"]);
-          setAcsToken(response.data["accessToken"]);
+          setTokenAtom(response.data["accessToken"]);
           navigate("/loginHome", { replace: true });
         })
         .catch((error) => {
