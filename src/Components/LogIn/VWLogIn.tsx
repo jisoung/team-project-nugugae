@@ -10,7 +10,7 @@ function LogInPage() {
     handleSubmit,
     // formState: { errors },
   } = useForm();
-  const onSubmit = ({ email, password }) => {
+  const onSubmit = ({ email, password }: any) => {
     let data = JSON.stringify({
       email: `${email}`,
       pw: `${password}`,
