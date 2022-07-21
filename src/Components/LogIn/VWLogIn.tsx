@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import * as S from "../../STYLES/Login/Components/STLLogin";
 import axios from "axios";
+import { useSetRecoilState } from "recoil";
+import { tokenState } from "../../atom";
 
 function LogInPage() {
   const {
@@ -11,6 +13,7 @@ function LogInPage() {
     // formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const setToken = useSetRecoilState(tokenState);
   const onSubmit = ({ email, password }: any) => {
     let data = JSON.stringify({
       email: `${email}`,
@@ -18,7 +21,7 @@ function LogInPage() {
     });
     let config = {
       method: "post",
-      url: "http://192.168.137.232:8080/api/auth/login",
+      url: "http://192.168.192.253:8080/api/auth/login",
       headers: {
         "Content-Type": "application/json",
       },
@@ -26,15 +29,13 @@ function LogInPage() {
       data: data,
     };
     axios(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data));
+      .then((responese) => {
+        console.log("로그인 성공!");
+        setToken(responese.data["accessToken"]);
         navigate("/", { replace: true });
       })
       .catch((error) => {
         console.log(error);
-      })
-      .finally(() => {
-        console.log("asdfdsfaf");
       });
   };
   return (
@@ -45,7 +46,11 @@ function LogInPage() {
       </Link>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
         <S.Input
           {...register("email", {
