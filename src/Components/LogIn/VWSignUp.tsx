@@ -16,7 +16,9 @@ interface IAuth {
   email?: string;
 }
 function VWSignUp() {
+  const [acsToken, setAcsToken] = useState("");
   const [isAuthOn, setIsAuthOn] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [authNum, setAuthNum] = useState<String>();
   const [correctAuth, setCorrectAuth] = useState(false);
@@ -44,30 +46,34 @@ function VWSignUp() {
     });
     let config = {
       method: "post",
-      url: "http://10.156.147.167:8090/api/auth/signup",
+      url: "http://192.168.192.253:8080/api/auth/signup",
       headers: {
         "Content-Type": "application/json",
       },
       maxRedirects: 0,
       data: jsonData,
     };
-    axios(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (!isSignUp) {
+      axios(config)
+        .then((response) => {
+          setIsSignUp(true);
+          console.log(response.data["accessToken"]);
+          setAcsToken(response.data["accessToken"]);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
   const authSumbit = async (data: IAuth) => {
     const config = {
       method: "post",
-      url: `http://10.156.147.167:8090/api/auth/email?email=${data.email}`,
+      url: `http://192.168.192.253:8080/api/auth/email?email=${data.email}`,
     };
     if (!correctAuth) {
       await axios(config)
         .then((Response: any) => {
-          console.log(JSON.stringify(Response));
+          console.log(JSON.parse(Response));
           setCorrectAuth(true);
         })
         .catch((error) => {
