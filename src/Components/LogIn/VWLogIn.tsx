@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import * as S from "../../STYLES/Login/Components/STLLogin";
 import axios from "axios";
@@ -10,12 +10,12 @@ function LogInPage() {
     handleSubmit,
     // formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
   const onSubmit = ({ email, password }: any) => {
     let data = JSON.stringify({
       email: `${email}`,
       pw: `${password}`,
     });
-
     let config = {
       method: "post",
       url: "http://192.168.137.232:8080/api/auth/login",
@@ -25,13 +25,16 @@ function LogInPage() {
       maxRedirects: 0,
       data: data,
     };
-
     axios(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        console.log("asdfdsfaf");
       });
   };
   return (
@@ -64,7 +67,9 @@ function LogInPage() {
           placeholder="please write password..."
           style={{ animationDelay: "0.15s" }}
         ></S.Input>
-        <S.SubmitBtn style={{ animationDelay: "0.3s" }}>Login</S.SubmitBtn>
+        <S.SubmitBtn style={{ animationDelay: "0.3s" }} type="submit">
+          Login
+        </S.SubmitBtn>
       </form>
     </S.Container>
   );
