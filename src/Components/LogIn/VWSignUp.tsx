@@ -49,7 +49,7 @@ function VWSignUp() {
     });
     let config = {
       method: "post",
-      url: "http://192.168.192.253:8080/api/auth/signup",
+      url: "http://192.168.192.1:8080/api/auth/signup",
       headers: {
         "Content-Type": "application/json",
       },
@@ -71,7 +71,7 @@ function VWSignUp() {
   const authSumbit = async (data: IAuth) => {
     const config = {
       method: "post",
-      url: `http://192.168.192.253:8080/api/auth/email?email=${data.email}`,
+      url: `http://192.168.192.1:8080/api/auth/email?email=${data.email}`,
     };
     if (!correctAuth) {
       await axios(config)
