@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { tokenState } from "../../../atom";
 import * as S from "../../../STYLES/Detail/STLSmpMain";
@@ -29,9 +28,6 @@ function VWSmpMain() {
         console.log(error);
       });
   }, []);
-  bundles.map((bundle) => {
-    console.log(bundle);
-  });
   return <S.SmpMainContainer></S.SmpMainContainer>;
 }
 
