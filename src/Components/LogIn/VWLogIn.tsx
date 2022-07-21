@@ -21,7 +21,7 @@ function LogInPage() {
     });
     let config = {
       method: "post",
-      url: "http://192.168.192.253:8080/api/auth/login",
+      url: "http://192.168.192.1:8080/api/auth/login",
       headers: {
         "Content-Type": "application/json",
       },
