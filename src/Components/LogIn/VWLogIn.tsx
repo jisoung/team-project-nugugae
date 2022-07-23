@@ -6,7 +6,7 @@ import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { tokenState } from "../../atom";
 
-function LogInPage() {
+function LogInPage(url: string) {
   const {
     register,
     handleSubmit,
@@ -21,7 +21,7 @@ function LogInPage() {
     });
     let config = {
       method: "post",
-      url: "http://192.168.192.1:8080/api/auth/login",
+      url,
       headers: {
         "Content-Type": "application/json",
       },

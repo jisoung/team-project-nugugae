@@ -17,7 +17,7 @@ interface IForm {
 interface IAuth {
   email?: string;
 }
-function VWSignUp() {
+function VWSignUp(url: string) {
   const [isAuthOn, setIsAuthOn] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
@@ -49,7 +49,7 @@ function VWSignUp() {
     });
     let config = {
       method: "post",
-      url: "http://192.168.192.1:8080/api/auth/signup",
+      url,
       headers: {
         "Content-Type": "application/json",
       },
