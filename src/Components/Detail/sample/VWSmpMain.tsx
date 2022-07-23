@@ -22,14 +22,14 @@ interface IDetail {
   species: string;
   weight: string;
 }
-function VWSmpMain() {
+function VWSmpMain(url: string) {
   const ascToken = useRecoilState(tokenState);
   const [bundles, setBundles] = useState<IBundle>({});
   const [kind, setKind] = useState(1);
   const [page, setPage] = useState(1);
   let config = {
     method: "get",
-    url: `http://192.168.192.1:8080/api/pet/search?s=${kind}&p=${page}`,
+    url: `${url}s=${kind}&p=${page}`,
     headers: {
       Authorization: `Bearer ${ascToken[0]}`,
     },
