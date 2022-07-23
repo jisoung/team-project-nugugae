@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { tokenState } from "../../../atom";
+import { localUrl, tokenState } from "../../../atom";
 import * as S from "../../../STYLES/Detail/STLSmpMain";
 
 interface IBundle {
@@ -22,14 +22,15 @@ interface IDetail {
   species: string;
   weight: string;
 }
-function VWSmpMain(url: string) {
+function VWSmpMain() {
   const ascToken = useRecoilState(tokenState);
+  const localUrl = useRecoilState(localUrl);
   const [bundles, setBundles] = useState<IBundle>({});
   const [kind, setKind] = useState(1);
   const [page, setPage] = useState(1);
   let config = {
     method: "get",
-    url: `${url}s=${kind}&p=${page}`,
+    url: `${localUrl}s=${kind}&p=${page}`,
     headers: {
       Authorization: `Bearer ${ascToken[0]}`,
     },
