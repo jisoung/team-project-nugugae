@@ -9,7 +9,7 @@ function PGShopHome() {
       <SmpNavView haveLine="shop" />
       <S.SmpMainContainer>
         <SmpSideView title="SHOP" />
-        <SmpMainView url={"https://967d-222-118-155-166.jp.ngrok.io"} />
+        <SmpMainView />
       </S.SmpMainContainer>
     </S.SmpContainer>
   );
