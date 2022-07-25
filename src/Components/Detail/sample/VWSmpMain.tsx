@@ -22,14 +22,14 @@ interface IDetail {
   species: string;
   weight: string;
 }
-function VWSmpMain({ url }): any {
+function VWSmpMain() {
   const ascToken = useRecoilState(tokenState);
   const [bundles, setBundles] = useState<IBundle>({});
   const [kind, setKind] = useState(1);
   const [page, setPage] = useState(1);
   let config = {
     method: "get",
-    url: `${url}s=${kind}&p=${page}`,
+    url: `https://967d-222-118-155-166.jp.ngrok.io=${kind}&p=${page}`,
     headers: {
       Authorization: `Bearer ${ascToken[0]}`,
     },
