@@ -17,7 +17,7 @@ interface IForm {
 interface IAuth {
   email?: string;
 }
-function VWSignUp(url: string) {
+function VWSignUp() {
   const [isAuthOn, setIsAuthOn] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
@@ -49,7 +49,7 @@ function VWSignUp(url: string) {
     });
     let config = {
       method: "post",
-      url,
+      url: "https://967d-222-118-155-166.jp.ngrok.io",
       headers: {
         "Content-Type": "application/json",
       },
@@ -71,7 +71,7 @@ function VWSignUp(url: string) {
   const authSumbit = async (data: IAuth) => {
     const config = {
       method: "post",
-      url: `http://192.168.192.1:8080/api/auth/email?email=${data.email}`,
+      url: `https://967d-222-118-155-166.jp.ngrok.io?email=${data.email}`,
     };
     if (!correctAuth) {
       await axios(config)
