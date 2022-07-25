@@ -1,11 +1,11 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import LogInHomePage from "./MAINPAGES/PGLogInHome";
-import LogInPage from "./COMPONENTS/LogIn/VWLogIn";
-import SignUpPage from "./COMPONENTS/LogIn/VWSignUp";
-import HomePage from "./MAINPAGES/PGHomeMain";
-import PGFindHome from "./MAINPAGES/Detail/PGFindHome";
-import PGAdoptHome from "./MAINPAGES/Detail/PGAdoptHome";
-import PGShopHome from "./MAINPAGES/Detail/PGShopHome";
+import LogInHomePage from "../MAINPAGES/PGLogInHome";
+import LogInPage from "../COMPONENTS/LogIn/VWLogIn";
+import SignUpPage from "../COMPONENTS/LogIn/VWSignUp";
+import HomePage from "../MAINPAGES/PGHomeMain";
+import PGFindHome from "../MAINPAGES/Detail/PGFindHome";
+import PGAdoptHome from "../MAINPAGES/Detail/PGAdoptHome";
+import PGShopHome from "../MAINPAGES/Detail/PGShopHome";
 
 function AppRouters() {
   return (
