@@ -71,7 +71,7 @@ function VWSignUp() {
   const authSumbit = async (data: IAuth) => {
     const config = {
       method: "post",
-      url: `https://967d-222-118-155-166.jp.ngrok.io?email=${data.email}`,
+      url: `https://967d-222-118-155-166.jp.ngrok.io/api/auth/signup?email=${data.email}`,
     };
     if (!correctAuth) {
       await axios(config)
