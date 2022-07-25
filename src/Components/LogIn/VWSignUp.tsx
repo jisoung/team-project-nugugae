@@ -49,7 +49,7 @@ function VWSignUp() {
     });
     let config = {
       method: "post",
-      url: "https://967d-222-118-155-166.jp.ngrok.io",
+      url: "https://967d-222-118-155-166.jp.ngrok.io/api/auth/signup",
       headers: {
         "Content-Type": "application/json",
       },
@@ -71,12 +71,12 @@ function VWSignUp() {
   const authSumbit = async (data: IAuth) => {
     const config = {
       method: "post",
-      url: `https://967d-222-118-155-166.jp.ngrok.io/api/auth/signup?email=${data.email}`,
+      url: `https://967d-222-118-155-166.jp.ngrok.io/api/auth/email?email=${data.email}`,
     };
     if (!correctAuth) {
       await axios(config)
         .then((Response: any) => {
-          console.log(JSON.parse(Response));
+          console.log(Response);
           setCorrectAuth(true);
         })
         .catch((error) => {
