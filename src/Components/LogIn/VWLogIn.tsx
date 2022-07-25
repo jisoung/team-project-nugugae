@@ -21,7 +21,7 @@ function LogInPage() {
     });
     let config = {
       method: "post",
-      url: "https://967d-222-118-155-166.jp.ngrok.io",
+      url: "https://967d-222-118-155-166.jp.ngrok.io/api/auth/login",
       headers: {
         "Content-Type": "application/json",
       },
