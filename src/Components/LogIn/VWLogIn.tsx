@@ -6,7 +6,7 @@ import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { tokenState } from "../../atom";
 
-function LogInPage(url: string) {
+function LogInPage() {
   const {
     register,
     handleSubmit,
@@ -21,7 +21,7 @@ function LogInPage(url: string) {
     });
     let config = {
       method: "post",
-      url,
+      url: "https://967d-222-118-155-166.jp.ngrok.io",
       headers: {
         "Content-Type": "application/json",
       },
