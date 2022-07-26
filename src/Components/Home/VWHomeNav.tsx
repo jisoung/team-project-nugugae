@@ -3,16 +3,17 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "../../STYLES/Home/STLHomeNav";
 import { Link } from "react-router-dom";
-import {useRecoilState} from "recoil";
+import {useRecoilValue} from "recoil";
+import {isLogin} from "../../_LAYOUT/atom";
 
 function HomeNavView() {
+    const isLogin = useRecoilValue(isLogin);
   const profileStyle = {
     width: "26px",
     height: "26px",
     marginRight: "30px",
     cursor: "pointer",
   };
-  const isLogin = useRecoilState(isLogin);
   return (
     <S.NavContainer>
       <S.TitleLogoContainer>

@@ -4,7 +4,7 @@ export interface IToken {
   ascToken: string;
 }
 
-export const isLogin = atom<Boolean>({
+export const isLogin = atom<boolean>({
   key: "isLogin",
   default: false,
 });
