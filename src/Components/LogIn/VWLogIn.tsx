@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import TitleLogo from "./titleLogo";
 import * as S from "../../STYLES/Login/Components/STLLogin";
 import axios from "axios";
-import { useSetRecoilState } from "recoil";
-import { tokenState } from "../../atom";
+import {RecoilState, useRecoilValue, useSetRecoilState} from "recoil";
+import { tokenState } from "../../_LAYOUT/atom";
 
 function LogInPage() {
   const {
@@ -14,7 +14,8 @@ function LogInPage() {
   } = useForm();
   const navigate = useNavigate();
   const setToken = useSetRecoilState(tokenState);
-  const onSubmit = ({ email, password }: any) => {
+  const isLogin = useRecoilValue(isLogin);
+  const onSubmit = ({ email, password }:any) => {
     let data = JSON.stringify({
       email: `${email}`,
       pw: `${password}`,

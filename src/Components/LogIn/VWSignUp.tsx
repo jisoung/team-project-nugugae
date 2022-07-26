@@ -5,7 +5,7 @@ import { FormEvent, useState } from "react";
 import axios from "axios";
 import * as S from "../../STYLES/Login/Components/STLSignUp";
 import { useSetRecoilState } from "recoil";
-import { tokenState } from "../../atom";
+import { tokenState } from "../../_LAYOUT/atom";
 
 interface IForm {
   id: string;

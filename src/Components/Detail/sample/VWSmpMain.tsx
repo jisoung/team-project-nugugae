@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { tokenState } from "../../../atom";
+import { tokenState } from "../../../_LAYOUT/atom";
 import * as S from "../../../STYLES/Detail/STLSmpMain";
 
 interface IBundle {
