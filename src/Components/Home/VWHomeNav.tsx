@@ -3,6 +3,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "../../STYLES/Home/STLHomeNav";
 import { Link } from "react-router-dom";
+import {useRecoilState} from "recoil";
 
 function HomeNavView() {
   const profileStyle = {
@@ -11,6 +12,7 @@ function HomeNavView() {
     marginRight: "30px",
     cursor: "pointer",
   };
+  const isLogin = useRecoilState(isLogin);
   return (
     <S.NavContainer>
       <S.TitleLogoContainer>
