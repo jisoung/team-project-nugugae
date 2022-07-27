@@ -3,11 +3,8 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "../../STYLES/Home/STLHomeNav";
 import { Link } from "react-router-dom";
-import {useRecoilValue} from "recoil";
-import {isLogin} from "../../_LAYOUT/atom";
 
 function HomeNavView() {
-    const isLogin = useRecoilValue(isLogin);
   const profileStyle = {
     width: "26px",
     height: "26px",
