@@ -27,15 +27,15 @@ function VWSmpMain() {
   const [bundles, setBundles] = useState<IBundle>({});
   const [kind, setKind] = useState(1);
   const [page, setPage] = useState(1);
-  let config = {
-    method: "get",
-    url: `https://967d-222-118-155-166.jp.ngrok.io=${kind}&p=${page}`,
-    headers: {
-      Authorization: `Bearer ${ascToken[0]}`,
-    },
-    maxRedirects: 0,
-  };
   useEffect(() => {
+    let config = {
+      method: "get",
+      url: `https://967d-222-118-155-166.jp.ngrok.io=${kind}&p=${page}`,
+      headers: {
+        Authorization: `Bearer ${ascToken[0]}`,
+      },
+      maxRedirects: 0,
+    };
     axios(config)
       .then((response) => {
         console.log(response.data);
