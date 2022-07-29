@@ -22,15 +22,17 @@ interface IDetail {
   species: string;
   weight: string;
 }
+
 function VWSmpMain() {
   const ascToken = useRecoilState(tokenState);
   const [bundles, setBundles] = useState<IBundle>({});
   const [kind, setKind] = useState(1);
   const [page, setPage] = useState(1);
   useEffect(() => {
+    console.log(ascToken[0])
     let config = {
       method: "get",
-      url: `https://967d-222-118-155-166.jp.ngrok.io=${kind}&p=${page}`,
+      url: `https://967d-222-118-155-166.jp.ngrok.io/api/pet/search?s=${kind}&p=${page}`,
       headers: {
         Authorization: `Bearer ${ascToken[0]}`,
       },
@@ -38,21 +40,18 @@ function VWSmpMain() {
     };
     axios(config)
       .then((response) => {
-        console.log(response.data);
         setBundles(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  Object.values(bundles).map((bundle): any => {
+  Object.values(bundles).forEach((bundle): any => {
     console.log(bundle);
   });
   return (
     <S.SmpMainContainer>
-      {Object.values(bundles).map((bundle): any => {
-        <div>{bundle}</div>;
-      })}
+      {Object.values(bundles).map((bundle) => bundle.map((detail: any): any => <img src={`https://www.daejeon.go.kr/${detail.filePath}`} width="200px" alt="none"/>))}
     </S.SmpMainContainer>
   );
 }
